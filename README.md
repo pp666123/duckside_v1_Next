@@ -44,4 +44,11 @@ npx create-next-app duckside
 ## Typescript
 ## Tailwind CSS
 sidebar製作 (下拉式選單?)
+## @heroicons/react
+icon套件
+## GIMP
+圖片軟體free開源
+LOGO去背
+## react-spring
+動畫套件
 

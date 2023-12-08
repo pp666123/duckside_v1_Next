@@ -1,10 +1,70 @@
-import Image from "next/image";
-import Homepage from "./components/Homepage";
+"use client";
+import { useState } from "react";
+import { useSpring, animated } from "react-spring";
 
 export default function Home() {
+  const colors = ["#FF5733", "#33FF57", "#5733FF"];
+  const [currentColorIndex, setCurrentColorIndex] = useState(0);
+
+  const ballFillStyle1 = useSpring({
+    from: { fill: "#eda4a4" },
+    to: async (next, cancel) => {
+      await next({ fill: "#fff" });
+      await next({ fill: "#bba3c4" });
+    },
+    config: { duration: 3000 },
+    reset: true,
+    loop: true,
+  });
+
+  const ballFillStyle2 = useSpring({
+    from: { fill: "#fff" },
+    to: async (next, cancel) => {
+      await next({ fill: "#bba3c4" });
+      await next({ fill: "#eda4a4" });
+    },
+    config: { duration: 3000 },
+    reset: true,
+    loop: true,
+  });
+
+  const ballFillStyle3 = useSpring({
+    from: { fill: "#bba3c4" },
+    to: async (next, cancel) => {
+      await next({ fill: "#eda4a4" });
+      await next({ fill: "#fff" });
+    },
+    config: { duration: 3000 },
+    reset: true,
+    loop: true,
+  });
+
+  const { transform: duckBoyWingLeft } = useSpring({
+    to: {
+      transform: `translate(780.499 633.23) rotate(180, 0, 0)`,
+    },
+    from: {
+      transform: `translate(780.499 633.23) rotate(150, 0, 0)`,
+    },
+    config: { duration: 1200 },
+    reset: true,
+    loop: { reverse: true },
+  });
+
+  const { transform: duckGrilWingRight } = useSpring({
+    to: {
+      transform: `translate(210.163 77.444) rotate(-300, 100, 100)`,
+    },
+    from: {
+      transform: `translate(210.163 77.444) rotate(-260, 100, 100)`,
+    },
+    config: { duration: 1800 },
+    reset: true,
+    loop: { reverse: true },
+  });
+
   return (
     <div className="bg-[#F5F5CC]">
-      {/* <HomePageWord /> */}
       <svg width="100%" height="61vh" viewBox="0 0 1920 1080">
         <defs>
           <filter
@@ -250,6 +310,7 @@ export default function Home() {
             stroke="#53480b"
             strokeWidth="6"
           />
+
           <g id="homepagePortrait" transform="translate(1112.415 210.318)">
             <path
               id="Path_24"
@@ -477,239 +538,246 @@ export default function Home() {
                 fill="#d9f2f2"
               />
             </g>
-            <circle
+            <animated.circle
               id="Ellipse_8"
               data-name="Ellipse 8"
               cx="13.751"
               cy="13.751"
               r="13.751"
               transform="translate(1337.3 572.716)"
-              fill="#bba3c4"
+              style={ballFillStyle3}
             />
-            <circle
+            <animated.circle
               id="Ellipse_27"
               data-name="Ellipse 27"
               cx="13.751"
               cy="13.751"
               r="13.751"
               transform="translate(1626.077 608.681)"
-              fill="#bba3c4"
+              style={ballFillStyle3}
             />
-            <circle
+
+            <animated.circle
               id="Ellipse_9"
               data-name="Ellipse 9"
               cx="16.925"
               cy="16.925"
               r="16.925"
               transform="translate(1378.553 588.583)"
-              fill="#bba3c4"
+              style={ballFillStyle3}
             />
-            <circle
+
+            <animated.circle
               id="Ellipse_31"
               data-name="Ellipse 31"
               cx="16.925"
               cy="16.925"
               r="16.925"
               transform="translate(1754.07 578.005)"
-              fill="#bba3c4"
+              style={ballFillStyle3}
             />
-            <circle
+
+            <animated.circle
               id="Ellipse_18"
               data-name="Ellipse 18"
               cx="16.925"
               cy="16.925"
               r="16.925"
               transform="translate(1645.117 569.543)"
-              fill="#bba3c4"
+              style={ballFillStyle3}
             />
-            <circle
+            <animated.circle
               id="Ellipse_10"
               data-name="Ellipse 10"
               cx="23.271"
               cy="23.271"
               r="23.271"
               transform="translate(1469.524 558.965)"
-              fill="#bba3c4"
+              style={ballFillStyle3}
             />
-            <circle
+
+            <animated.circle
               id="Ellipse_11"
               data-name="Ellipse 11"
               cx="14.809"
               cy="14.809"
               r="14.809"
               transform="translate(1683.198 580.121)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_12"
               data-name="Ellipse 12"
               cx="17.454"
               cy="17.454"
               r="17.454"
               transform="translate(1434.617 580.121)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_29"
               data-name="Ellipse 29"
               cx="17.454"
               cy="17.454"
               r="17.454"
               transform="translate(1347.877 593.872)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_13"
               data-name="Ellipse 13"
               cx="15.338"
               cy="15.338"
               r="15.338"
               transform="translate(1600.69 588.583)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_33"
               data-name="Ellipse 33"
               cx="15.338"
               cy="15.338"
               r="15.338"
               transform="translate(1506.546 546.272)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_17"
               data-name="Ellipse 17"
               cx="24.858"
               cy="24.858"
               r="24.858"
               transform="translate(1521.356 573.774)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_16"
               data-name="Ellipse 16"
               cx="14.809"
               cy="14.809"
               r="14.809"
               transform="translate(1388.074 558.965)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_14"
               data-name="Ellipse 14"
               cx="14.809"
               cy="14.809"
               r="14.809"
               transform="translate(1485.391 603.392)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_15"
               data-name="Ellipse 15"
               cx="14.809"
               cy="14.809"
               r="14.809"
               transform="translate(1272.774 580.121)"
-              fill="#eda4a4"
+              style={ballFillStyle1}
             />
-            <circle
+            <animated.circle
               id="Ellipse_19"
               data-name="Ellipse 19"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1420.865 604.45)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+            <animated.circle
               id="Ellipse_28"
               data-name="Ellipse 28"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1419.808 553.676)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+            <animated.circle
               id="Ellipse_21"
               data-name="Ellipse 21"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1562.609 609.739)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+            <animated.circle
               id="Ellipse_26"
               data-name="Ellipse 26"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1613.384 564.254)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+            <animated.circle
               id="Ellipse_25"
               data-name="Ellipse 25"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1513.951 609.739)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+
+            <animated.circle
               id="Ellipse_22"
               data-name="Ellipse 22"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1662.042 599.161)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+            <animated.circle
               id="Ellipse_23"
               data-name="Ellipse 23"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1728.683 576.947)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+            <animated.circle
               id="Ellipse_24"
               data-name="Ellipse 24"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1563.667 555.792)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+            <animated.circle
               id="Ellipse_30"
               data-name="Ellipse 30"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1700.123 592.814)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+
+            <animated.circle
               id="Ellipse_20"
               data-name="Ellipse 20"
               cx="16.396"
               cy="16.396"
               r="16.396"
               transform="translate(1318.259 589.641)"
-              fill="#fff"
+              style={ballFillStyle2}
             />
-            <circle
+
+            <animated.circle
               id="Ellipse_32"
               data-name="Ellipse 32"
               cx="16.925"
               cy="16.925"
               r="16.925"
               transform="translate(1718.105 589.641)"
-              fill="#bba3c4"
+              style={ballFillStyle3}
             />
           </g>
           <g id="homepageBasketball" transform="translate(-148.503 118.416)">
@@ -1391,26 +1459,21 @@ export default function Home() {
               ry="14.5"
               transform="translate(960 505)"
             />
-            <path
-              id="homepageWingRight"
-              data-name="Path 10"
-              d="M108.133-6.73S129,28.878,129,64.5A64.5,64.5,0,0,1,64.5,129c-35.622,0-66.147-25.193-66.147-25.193S36.632,67.92,52.757,51.8,108.133-6.73,108.133-6.73Z"
-              transform="matrix(0.961, 0.276, -0.276, 0.961, 691.142, 604.682)"
-              fill="#574809"
-            />
-            {/* ********************** */}
-            {/* ********************** */}
-            {/* ********************** */}
-            {/* ********************** */}
-            {/* <g transform="translate(-161,-36)"> */}
-            <path
-              id="homepageWingLeft"
+            <animated.path
+              id="duckBoyWingLeft"
               data-name="Path 11"
               d="M109.78,135.73s20.867-35.607,20.867-71.23A64.5,64.5,0,0,0,66.147,0C30.525,0,0,25.193,0,25.193S38.279,61.08,54.4,77.2,109.78,135.73,109.78,135.73Z"
-              transform="translate(940.499 553.23) rotate(150, 100, 100)"
+              transform={duckBoyWingLeft}
               fill="#574804"
             />
-            {/* </g> */}
+            <path
+              id="duckBoyWingRight"
+              data-name="Path 11"
+              d="M109.78,135.73s20.867-35.607,20.867-71.23A64.5,64.5,0,0,0,66.147,0C30.525,0,0,25.193,0,25.193S38.279,61.08,54.4,77.2,109.78,135.73,109.78,135.73Z"
+              transform="translate(945.499 533.23) rotate(140, 100, 100)"
+              fill="#574804"
+            />
+
             <path
               id="Polygon_11"
               data-name="Polygon 11"
@@ -1611,11 +1674,11 @@ export default function Home() {
                 transform="matrix(-0.454, 0.891, -0.891, -0.454, 164.042, 223.524)"
                 fill="coral"
               />
-              <path
-                id="Path_11-3"
+              <animated.path
+                id="duckGrilWingRight"
                 data-name="Path 11"
                 d="M99.91,123.526S118.9,91.12,118.9,58.7A58.7,58.7,0,0,0,60.2,0C27.78,0,0,22.928,0,22.928s34.837,32.66,49.512,47.335S99.91,123.526,99.91,123.526Z"
-                transform="translate(320.163 167.444) rotate(70)"
+                transform={duckGrilWingRight}
                 fill="coral"
               />
             </g>

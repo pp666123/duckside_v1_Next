@@ -152,18 +152,15 @@ export default function Sidebar() {
                   ></path>
                 </svg>
               </button>
-              <a href="https://flowbite.com" className="flex ms-2 md:me-24">
+              <a href="#" className="flex items-center ms-2 md:me-24">
                 <Image
-                  src="https://flowbite.com/docs/images/logo.svg"
-                  alt="Vercel Logo"
-                  className="h-8 me-3"
-                  width={100}
-                  height={24}
+                  src="/duckLogo.png"
+                  alt="Duck Logo"
+                  className=" me-3"
+                  width={200}
+                  height={100}
                   priority
                 />
-                <span className="self-center text-xl font-semibold lg:text-2xl whitespace-nowrap dark:text-white">
-                  Flowbite
-                </span>
               </a>
             </div>
             <div className="flex items-center">
