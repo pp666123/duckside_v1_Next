@@ -14,7 +14,7 @@ export default function Sidebar() {
       name: "我的計畫",
       href: "#",
       icon: (
-        <ClipboardDocumentListIcon className="w-[24px] h-[24px] transition duration-75 text-[#2A6470]" />
+        <ClipboardDocumentListIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
@@ -27,7 +27,7 @@ export default function Sidebar() {
       name: "交易紀錄",
       href: "#",
       icon: (
-        <CalculatorIcon className="w-[24px] h-[24px] transition duration-75 text-[#2A6470]" />
+        <CalculatorIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
@@ -40,7 +40,7 @@ export default function Sidebar() {
       name: "投資成果",
       href: "#",
       icon: (
-        <DocumentMagnifyingGlassIcon className="w-[24px] h-[24px] transition duration-75 text-[#2A6470]" />
+        <DocumentMagnifyingGlassIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
@@ -53,7 +53,7 @@ export default function Sidebar() {
       name: "資產明細",
       href: "#",
       icon: (
-        <BanknotesIcon className="w-[24px] h-[24px] transition duration-75 text-[#2A6470]" />
+        <BanknotesIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
       ),
       note: <></>,
     },
@@ -62,7 +62,7 @@ export default function Sidebar() {
       href: "#",
       icon: (
         <svg
-          className="flex-shrink-0 w-5 h-5 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -258,16 +258,13 @@ export default function Sidebar() {
           <ul className="space-y-2 font-medium">
             {listItem.map((item, index) => {
               return (
-                <li
-                  key={index}
-                  className="hover:bg-gray-200 hover:bg-opacity-50 hover:font-bold hover:text-[#2A6470]"
-                >
+                <li key={index}>
                   <a
                     href={item.href}
-                    className="flex items-center p-2 rounded-lg  group"
+                    className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2A6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group"
                   >
                     {item.icon}
-                    <span className="flex-1 ms-3 whitespace-nowrap ">
+                    <span className="flex-1 ms-3 whitespace-nowrap">
                       {item.name}
                     </span>
                     {item.note}
