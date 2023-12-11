@@ -1,3 +1,5 @@
+# demo
+[https://duckside-v1-next-2wh2wzegi-pp666123.vercel.app/#](<https://duckside-v1-next-2wh2wzegi-pp666123.vercel.app/#>)
 # duckside
 2022年資展國際前端班專題
 2023年使用Next及Redux重構
