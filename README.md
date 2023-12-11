@@ -33,8 +33,9 @@
 
 1. ~~迎賓動畫&改色調~~
 2. ~~redux~~
-1. model
-1. 登入state規劃
+1. ~~model~~
+1. modal UI復刻
+1. ~~登入state規劃~~
 3. 登入&頭像選單
 4. 第三方
 5. 
@@ -65,6 +66,8 @@ LOGO去背
 網站部屬
 ## react-modal
 modal
+## react-redux&@reduxjs/toolkit
+官網：[https://redux-toolkit.js.org/](<https://redux-toolkit.js.org/>)  
 # Markdown
 換行=空兩格  
 超連結=[文字](<www.test.com>)  
