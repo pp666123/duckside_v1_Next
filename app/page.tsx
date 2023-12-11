@@ -1,5 +1,7 @@
 "use client";
 import { useSpring, animated } from "react-spring";
+import LoginModal from "./components/LoginModal";
+import { useState } from "react";
 
 export default function Home() {
   const ballFillStyle1 = useSpring({
@@ -59,8 +61,11 @@ export default function Home() {
     loop: { reverse: true },
   });
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
-    <div className="bg-[#F5F5CC]">
+    <div className="bg-[#F5F5CC]" onClick={() => setModalIsOpen(!modalIsOpen)}>
+      <LoginModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
       <svg width="100%" height="61vh" viewBox="0 0 1920 1080">
         <defs>
           <filter
@@ -1135,9 +1140,20 @@ export default function Home() {
               fill="#dbdbdb"
               stroke="#707070"
               strokeWidth="1"
+              className="cursor-pointer"
             >
               <rect width="414" height="203" stroke="none" />
               <rect x="0.5" y="0.5" width="413" height="202" fill="none" />
+              <text
+                x="210"
+                y="110"
+                font-size="80"
+                fill="black"
+                text-anchor="middle"
+                alignment-baseline="middle"
+              >
+                登入
+              </text>
             </g>
             <g
               transform="matrix(1, 0, 0, 1, 314, 64.77)"

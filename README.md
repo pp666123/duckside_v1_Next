@@ -32,7 +32,9 @@
 代辦順序
 
 1. ~~迎賓動畫&改色調~~
-2. redux
+2. ~~redux~~
+1. model
+1. 登入state規劃
 3. 登入&頭像選單
 4. 第三方
 5. 
@@ -61,7 +63,8 @@ LOGO去背
 動畫套件
 ## vercel
 網站部屬
-
+## react-modal
+modal
 # Markdown
 換行=空兩格  
 超連結=[文字](<www.test.com>)  

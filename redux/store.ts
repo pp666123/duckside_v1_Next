@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterSlice from './reducer/counterSlice'
+import counterSlice from '../app/pageReducer'
 
 export const makeStore = () => {
   return configureStore({
