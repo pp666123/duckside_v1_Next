@@ -16,22 +16,27 @@
 9. 模擬投資
 10. 關於本站
 11. 合作夥伴
-12. RWD
-新版
+12. RWD  
+新版  
 1. 我的計畫(計畫)
 2. 交易紀錄(執行)
 3. 投資成果(成果)
 4. 資產明細(總財產)
 代辦順序
-1. 迎賓動畫&改色調
-2. redux
-3. 登入&頭像選單
-4. 第三方
-5. 
+1. 迎賓動畫&改色調(完成)
+2. github上線
+3. redux
+4. 登入&頭像選單
+5. 第三方
+6. 
 
 # 啟動專案
+安裝套件  
 ```bash
 yarn 
+```
+啟動專案  
+```bash
 yarn dev
 ```
 
@@ -42,13 +47,18 @@ npx create-next-app duckside
 ## Yarn
 ## ESLint
 ## Typescript
+interface
 ## Tailwind CSS
 sidebar製作 (下拉式選單?)
 ## @heroicons/react
 icon套件
 ## GIMP
-圖片軟體free開源
+圖片軟體free開源  
 LOGO去背
 ## react-spring
-動畫套件
-
+官方網站：https://react-spring.dev/  
+動畫套件 (籃球可以掉下來並滾動?)  
+在 React 中，setState 函数是異步的，它不會立即改變狀態變量的值。  
+在useEffect中使用setState function會得到undefind  
+## Markdown  
+換行=兩個空格

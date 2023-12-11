@@ -1,10 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
-
 export default function Home() {
-  const colors = ["#FF5733", "#33FF57", "#5733FF"];
-  const [currentColorIndex, setCurrentColorIndex] = useState(0);
+  const [duckBoyWingLeftTransform, setDuckBoyWingLeftTransform] =
+    useState(false);
 
   const ballFillStyle1 = useSpring({
     from: { fill: "#eda4a4" },
@@ -13,8 +12,8 @@ export default function Home() {
       await next({ fill: "#bba3c4" });
     },
     config: { duration: 3000 },
-    reset: true,
     loop: true,
+    immediate: true,
   });
 
   const ballFillStyle2 = useSpring({
@@ -24,7 +23,6 @@ export default function Home() {
       await next({ fill: "#eda4a4" });
     },
     config: { duration: 3000 },
-    reset: true,
     loop: true,
   });
 
@@ -35,33 +33,40 @@ export default function Home() {
       await next({ fill: "#fff" });
     },
     config: { duration: 3000 },
-    reset: true,
     loop: true,
   });
 
   const { transform: duckBoyWingLeft } = useSpring({
     to: {
-      transform: `translate(780.499 633.23) rotate(180, 0, 0)`,
+      transform: duckBoyWingLeftTransform
+        ? `translate(780.499 633.23) rotate(180, 0, 0)`
+        : `translate(780.499 633.23) rotate(150, 0, 0)`,
     },
     from: {
-      transform: `translate(780.499 633.23) rotate(150, 0, 0)`,
+      transform: duckBoyWingLeftTransform
+        ? `translate(780.499 633.23) rotate(150, 0, 0)`
+        : `translate(780.499 633.23) rotate(180, 0, 0)`,
     },
     config: { duration: 1200 },
-    reset: true,
     loop: { reverse: true },
   });
 
   const { transform: duckGrilWingRight } = useSpring({
     to: {
-      transform: `translate(210.163 77.444) rotate(-300, 100, 100)`,
+      transform: `translate(210.163 77.444) rotate(-280, 100, 100)`,
     },
     from: {
-      transform: `translate(210.163 77.444) rotate(-260, 100, 100)`,
+      transform: `translate(210.163 77.444) rotate(-240, 100, 100)`,
     },
-    config: { duration: 1800 },
-    reset: true,
+    config: { duration: 2800 },
     loop: { reverse: true },
   });
+  useEffect(() => {
+    setDuckBoyWingLeftTransform(() => true);
+    setDuckBoyWingLeftTransform(
+      (duckBoyWingLeftTransform) => !setDuckBoyWingLeftTransform
+    );
+  }, []);
 
   return (
     <div className="bg-[#F5F5CC]">
@@ -1141,6 +1146,17 @@ export default function Home() {
               strokeWidth="1"
             >
               <rect width="414" height="203" stroke="none" />
+              <text
+                x="11%"
+                y="10%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                fill="black"
+                fontSize={80}
+                className="cursor-pointer"
+              >
+                登入
+              </text>
               <rect x="0.5" y="0.5" width="413" height="202" fill="none" />
             </g>
             <g
