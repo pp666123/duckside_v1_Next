@@ -80,7 +80,7 @@ export default function Home() {
             height="30.474"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur" />
             <feFlood floodOpacity="0.161" />
             <feComposite operator="in" in2="blur" />
@@ -94,7 +94,7 @@ export default function Home() {
             height="31.86"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-2" />
             <feFlood floodOpacity="0.161" />
             <feComposite operator="in" in2="blur-2" />
@@ -108,7 +108,7 @@ export default function Home() {
             height="117.953"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-3" />
             <feFlood floodOpacity="0.259" />
             <feComposite operator="in" in2="blur-3" />
@@ -122,7 +122,7 @@ export default function Home() {
             height="123.964"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-4" />
             <feFlood floodOpacity="0.259" />
             <feComposite operator="in" in2="blur-4" />
@@ -136,7 +136,7 @@ export default function Home() {
             height="99.276"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-5" />
             <feFlood floodOpacity="0.259" />
             <feComposite operator="in" in2="blur-5" />
@@ -150,7 +150,7 @@ export default function Home() {
             height="99.276"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-6" />
             <feFlood floodColor="#f1801e" result="color" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-6" />
@@ -165,7 +165,7 @@ export default function Home() {
             height="290.682"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-7" />
             <feFlood floodOpacity="0.259" />
             <feComposite operator="in" in2="blur-7" />
@@ -178,7 +178,7 @@ export default function Home() {
             height="290.682"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dx="-30" dy="-10" input="SourceAlpha" />
+            <feOffset dx="-30" dy="-10" />
             <feGaussianBlur stdDeviation="25" result="blur-8" />
             <feFlood floodColor="#13dbe2" floodOpacity="0.3" result="color-2" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-8" />
@@ -193,7 +193,7 @@ export default function Home() {
             height="114.954"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-9" />
             <feFlood floodOpacity="0.259" />
             <feComposite operator="in" in2="blur-9" />
@@ -207,14 +207,14 @@ export default function Home() {
             height="119.05"
             filterUnits="userSpaceOnUse"
           >
-            <feOffset dy="3" input="SourceAlpha" />
+            <feOffset dy="3" />
             <feGaussianBlur stdDeviation="3" result="blur-10" />
             <feFlood floodOpacity="0.259" />
             <feComposite operator="in" in2="blur-10" />
             <feComposite in="SourceGraphic" />
           </filter>
           <filter id="Rectangle_84">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-11" />
             <feFlood
               floodColor="#262626"
@@ -226,7 +226,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_85">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-12" />
             <feFlood floodOpacity="0.102" result="color-4" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-12" />
@@ -234,7 +234,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_86">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-13" />
             <feFlood floodOpacity="0.102" result="color-5" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-13" />
@@ -242,7 +242,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_87">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-14" />
             <feFlood floodOpacity="0.102" result="color-6" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-14" />
@@ -250,7 +250,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_88">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-15" />
             <feFlood floodOpacity="0.102" result="color-7" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-15" />
@@ -258,7 +258,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_89">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-16" />
             <feFlood floodOpacity="0.102" result="color-8" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-16" />
@@ -266,7 +266,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_90">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-17" />
             <feFlood floodOpacity="0.102" result="color-9" />
             <feComposite operator="out" in="SourceGraphic" in2="blur-17" />
@@ -274,7 +274,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_91">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-18" />
             <feFlood
               floodColor="#262626"
@@ -286,7 +286,7 @@ export default function Home() {
             <feComposite operator="in" in2="SourceGraphic" />
           </filter>
           <filter id="Rectangle_92">
-            <feOffset dy="-30" input="SourceAlpha" />
+            <feOffset dy="-30" />
             <feGaussianBlur stdDeviation="3" result="blur-19" />
             <feFlood
               floodColor="#262626"
