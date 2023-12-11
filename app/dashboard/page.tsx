@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch, useAppStore } from "../../redux/hook";
 import { login } from "../pageReducer";
 
 export default function Home() {
-  const email = useAppSelector((state) => state.counter.email);
+  const email = useAppSelector((state) => state.auth.email);
   const dispatch = useAppDispatch();
   return (
     <>

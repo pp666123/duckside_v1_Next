@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterSlice from '../app/pageReducer'
+import authReducer from '../app/pageReducer'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      counter:counterSlice
+      auth:authReducer
     }
   })
 }
