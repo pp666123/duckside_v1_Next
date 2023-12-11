@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SideBar from "./components/Sidebar";
+import StoreProvider from "./StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,18 +17,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} flex`}>
-        <SideBar />
-        <main className="flex min-h-screen flex-col items-center justify-between py-24 px-6 w-[100%]">
-          <div className="flex flex-col bg-white p-5 shadow-lg rounded">
-            {children}
-            <div className="flex justify-center">
-              Copyright © Duckside 2023.
+    <StoreProvider>
+      <html lang="en">
+        <body className={`${inter.className} flex`}>
+          <SideBar />
+          <main className="flex min-h-screen flex-col items-center justify-between py-24 px-6 w-[100%]">
+            <div className="flex flex-col bg-white p-5 shadow-lg rounded">
+              {children}
+              <div className="flex justify-center">
+                Copyright © Duckside 2023.
+              </div>
             </div>
-          </div>
-        </main>
-      </body>
-    </html>
+          </main>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

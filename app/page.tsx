@@ -1,11 +1,7 @@
 "use client";
-import { useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 export default function Home() {
-  const colors = ["#FF5733", "#33FF57", "#5733FF"];
-  const [currentColorIndex, setCurrentColorIndex] = useState(0);
-
   const ballFillStyle1 = useSpring({
     from: { fill: "#eda4a4" },
     to: async (next, cancel) => {

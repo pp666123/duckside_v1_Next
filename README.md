@@ -66,3 +66,6 @@ LOGO去背
 換行=空兩格  
 超連結=[文字](<www.test.com>)  
 
+# AI
+ChatGPT  
+Anthropic  
