@@ -14,7 +14,7 @@ export default function Sidebar() {
       name: "我的計畫",
       href: "#",
       icon: (
-        <ClipboardDocumentListIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
+        <ClipboardDocumentListIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
@@ -27,7 +27,7 @@ export default function Sidebar() {
       name: "交易紀錄",
       href: "#",
       icon: (
-        <CalculatorIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
+        <CalculatorIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
@@ -40,7 +40,7 @@ export default function Sidebar() {
       name: "投資成果",
       href: "#",
       icon: (
-        <DocumentMagnifyingGlassIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
+        <DocumentMagnifyingGlassIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
@@ -53,7 +53,7 @@ export default function Sidebar() {
       name: "資產明細",
       href: "#",
       icon: (
-        <BanknotesIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2A6470]" />
+        <BanknotesIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
       ),
       note: <></>,
     },
@@ -146,8 +146,8 @@ export default function Sidebar() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
+                    clipRule="evenodd"
+                    fillRule="evenodd"
                     d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
                   ></path>
                 </svg>
@@ -261,7 +261,7 @@ export default function Sidebar() {
                 <li key={index}>
                   <a
                     href={item.href}
-                    className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2A6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group"
+                    className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2a6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group"
                   >
                     {item.icon}
                     <span className="flex-1 ms-3 whitespace-nowrap">

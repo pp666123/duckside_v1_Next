@@ -42,7 +42,7 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
       <Modal
         isOpen={modalIsOpen}
         ariaHideApp={false}
-        className="top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-0 bg-white shadow-md rounded"
+        className="top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-0 bg-white shadow rounded outline-none"
         contentLabel="Example Modal"
       >
         <div className="flex md:flex-row flex-col">
