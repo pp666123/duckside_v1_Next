@@ -72,7 +72,7 @@ export default function Home() {
       <LoginModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
       <div
         className="bg-[#F5F5CC] py-4"
-        onClick={() => setModalIsOpen(!modalIsOpen)}
+        onClick={() => !login && setModalIsOpen(!modalIsOpen)}
       >
         <svg width="100%" height="70vh" viewBox="0 0 1920 1080">
           <defs>
@@ -1152,7 +1152,7 @@ export default function Home() {
                 fill="#dbdbdb"
                 stroke="#707070"
                 strokeWidth="1"
-                className="cursor-pointer"
+                className={!login ? "cursor-pointer" : ""}
               >
                 <rect width="414" height="203" stroke="none" />
                 <rect x="0.5" y="0.5" width="413" height="202" fill="none" />

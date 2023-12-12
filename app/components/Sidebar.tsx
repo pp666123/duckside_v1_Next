@@ -8,8 +8,6 @@ import {
   CalculatorIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { useAppSelector } from "@/redux/hook";
-import { useRouter } from "next/navigation";
 import AuthVerification from "../utils/authVerification";
 
 export default function Sidebar() {
