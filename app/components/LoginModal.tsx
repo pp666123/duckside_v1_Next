@@ -32,11 +32,11 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
     <div>
       <Modal
         isOpen={modalIsOpen}
-        style={customStyles}
+        className="top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-1 bg-white shadow-md rounded"
         contentLabel="Example Modal"
       >
-        <div className="flex">
-          <div className="bg-[#2A6470] flex items-center px-5">
+        <div className="flex md:flex-row flex-col">
+          <div className="bg-[#2A6470] flex md:items-center justify-center md:px-5 py-3 rounded-l">
             <div>
               <Image src="/duck.png" width={72} height={72} alt="duck" />
             </div>
@@ -60,7 +60,7 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
               <button className="bg-[#2A6470] hover:bg-[#007f72] rounded py-2 text-xl text-white">
                 登入
               </button>
-              <div className="flex justify-between">
+              <div className="flex justify-between px-1">
                 <div className="text-gray-400 hover:text-black cursor-pointer">
                   忘記密碼?
                 </div>
@@ -72,8 +72,8 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
                 </div>
               </div>
               <hr />
-              <div className="flex flex-col justify-between h-[9vh] text-white">
-                <button className="bg-[#3B5998] hover:text-xl py-2 rounded">
+              <div className="flex flex-col justify-between text-white">
+                <button className="bg-[#3B5998] hover:text-xl py-2 rounded mb-2">
                   使用Facebook帳號登入
                 </button>
                 <button className="bg-[#dd4b39] hover:text-xl py-2 rounded">
