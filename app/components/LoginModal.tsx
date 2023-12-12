@@ -41,7 +41,8 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
     <div>
       <Modal
         isOpen={modalIsOpen}
-        className="top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-1 bg-white shadow-md rounded"
+        ariaHideApp={false}
+        className="top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-0 bg-white shadow-md rounded"
         contentLabel="Example Modal"
       >
         <div className="flex md:flex-row flex-col">
@@ -79,6 +80,7 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
                   type="password"
                   className="border-b-2 focus:outline-none pb-2 focus:border-gray-800"
                   placeholder="密碼"
+                  autoComplete="current-password"
                   {...register("password", { required: true, minLength: 8 })}
                 />
                 {errors?.password?.type === "required" && (

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import SideBar from "./components/Sidebar";
 import StoreProvider from "../redux/StoreProvider";
+import Modal from "react-modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
