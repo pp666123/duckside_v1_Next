@@ -23,7 +23,7 @@ export default function RootLayout({
         <body className={`${inter.className} flex`}>
           <SideBar />
           <main className="flex min-h-screen flex-col items-center justify-between py-24 px-6 w-[100%]">
-            <div className="flex flex-col bg-white p-5 shadow-lg rounded">
+            <div className="flex flex-col bg-white p-5 shadow-lg rounded w-[100%]">
               {children}
               <div className="flex justify-center">
                 Copyright © Duckside 2023.

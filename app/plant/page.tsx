@@ -3,17 +3,8 @@ import Image from "next/image";
 import { useAppSelector, useAppDispatch, useAppStore } from "../../redux/hook";
 import { login } from "../pageReducer";
 
-export default function Home() {
+export default function Plant() {
   // const email = useAppSelector((state) => state.auth.email);
   // const dispatch = useAppDispatch();
-  return (
-    <>
-      {/* <div>{email}</div>
-      <button
-        onClick={() => dispatch(login({ email: "123", password: "3434" }))}
-      >
-        ++++
-      </button> */}
-    </>
-  );
+  return <>plant</>;
 }

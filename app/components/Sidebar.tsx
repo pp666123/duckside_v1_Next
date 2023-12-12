@@ -7,12 +7,13 @@ import {
   BanknotesIcon,
   CalculatorIcon,
 } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 export default function Sidebar() {
   const listItem = [
     {
       name: "我的計畫",
-      href: "#",
+      href: "plant",
       icon: (
         <ClipboardDocumentListIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
@@ -25,7 +26,7 @@ export default function Sidebar() {
     },
     {
       name: "交易紀錄",
-      href: "#",
+      href: "history",
       icon: (
         <CalculatorIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
@@ -38,7 +39,7 @@ export default function Sidebar() {
     },
     {
       name: "投資成果",
-      href: "#",
+      href: "achievement",
       icon: (
         <DocumentMagnifyingGlassIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
@@ -51,7 +52,7 @@ export default function Sidebar() {
     },
     {
       name: "資產明細",
-      href: "#",
+      href: "asset",
       icon: (
         <BanknotesIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
@@ -152,7 +153,7 @@ export default function Sidebar() {
                   ></path>
                 </svg>
               </button>
-              <a href="#" className="flex items-center ms-2 md:me-24">
+              <Link href="/" className="flex items-center ms-2 md:me-24">
                 <Image
                   src="/duckLogo.png"
                   alt="Duck Logo"
@@ -161,7 +162,7 @@ export default function Sidebar() {
                   height={100}
                   priority
                 />
-              </a>
+              </Link>
             </div>
             <div className="flex items-center">
               <div className="flex items-center ms-3">
@@ -259,7 +260,7 @@ export default function Sidebar() {
             {listItem.map((item, index) => {
               return (
                 <li key={index}>
-                  <a
+                  <Link
                     href={item.href}
                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2a6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group"
                   >
@@ -268,7 +269,7 @@ export default function Sidebar() {
                       {item.name}
                     </span>
                     {item.note}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
