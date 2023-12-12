@@ -14,7 +14,7 @@ export default function Sidebar() {
       name: "我的計畫",
       href: "#",
       icon: (
-        <ClipboardDocumentListIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
+        <ClipboardDocumentListIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
@@ -27,7 +27,7 @@ export default function Sidebar() {
       name: "交易紀錄",
       href: "#",
       icon: (
-        <CalculatorIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
+        <CalculatorIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
@@ -40,7 +40,7 @@ export default function Sidebar() {
       name: "投資成果",
       href: "#",
       icon: (
-        <DocumentMagnifyingGlassIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
+        <DocumentMagnifyingGlassIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
       note: (
         // <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
@@ -53,7 +53,7 @@ export default function Sidebar() {
       name: "資產明細",
       href: "#",
       icon: (
-        <BanknotesIcon className="w-[24px] h-[24px] text-gray-500 transition duration-75 text-[#2a6470]" />
+        <BanknotesIcon className="w-[24px] h-[24px] transition duration-75 text-[#2a6470]" />
       ),
       note: <></>,
     },
