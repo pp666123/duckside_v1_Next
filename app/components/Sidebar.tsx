@@ -8,6 +8,9 @@ import {
   CalculatorIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { useAppSelector } from "@/redux/hook";
+import { useRouter } from "next/navigation";
+import AuthVerification from "../utils/authVerification";
 
 export default function Sidebar() {
   const listItem = [
@@ -123,6 +126,7 @@ export default function Sidebar() {
   ];
   const [show, setShow] = useState(false);
   const showToggleHandler = () => setShow(!show);
+  const checkAuth = AuthVerification();
   return (
     <>
       {/* HEADSHOT */}
@@ -261,7 +265,7 @@ export default function Sidebar() {
               return (
                 <li key={index}>
                   <Link
-                    href={item.href}
+                    href={checkAuth ? item.href : "/"}
                     className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2a6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group"
                   >
                     {item.icon}

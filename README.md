@@ -53,6 +53,26 @@ npx create-next-app duckside
 ## Yarn
 ## ESLint
 ## Typescript
+```
+// 定義
+type LoginData = {
+  email: string;
+  password: string;
+};
+
+function loginUser(data: LoginData): void {
+  console.log(`Email: ${data.email}, Password: ${data.password}`);
+}
+
+// 使用
+const userCredentials: LoginData = {
+  email: 'user@example.com',
+  password: 'securepassword',
+};
+
+// 調用
+loginUser(userCredentials);
+```
 ## Tailwind CSS
 sidebar製作 (下拉式選單?)
 ## @heroicons/react
