@@ -1155,10 +1155,10 @@ export default function Home() {
                 <text
                   x="210"
                   y="110"
-                  font-size="80"
+                  fontSize="80"
                   fill="black"
-                  text-anchor="middle"
-                  alignment-baseline="middle"
+                  textAnchor="middle"
+                  alignmentBaseline="middle"
                 >
                   登入
                 </text>

@@ -19,6 +19,7 @@ export const login = createAsyncThunk(
 interface AuthState {
   entities: [];
   loading: "idle" | "pending" | "succeeded" | "failed";
+  login: boolean;
   email: string;
   pasword: string;
   name: string;
@@ -27,6 +28,7 @@ interface AuthState {
 const initialState = {
   entities: [],
   loading: "idle",
+  login: false,
   email: "",
   pasword: "",
   name: "",
@@ -42,6 +44,19 @@ export const counterSlice = createSlice({
       // Add user to the state array
       state.email = action.payload;
     });
+
+    //  .addCase(fetchPosts.pending, (state, action) => {
+    //   state.status = 'loading'
+    // })
+    // .addCase(fetchPosts.fulfilled, (state, action) => {
+    //   state.status = 'succeeded'
+    //   // Add any fetched posts to the array
+    //   state.posts = state.posts.concat(action.payload)
+    // })
+    // .addCase(fetchPosts.rejected, (state, action) => {
+    //   state.status = 'failed'
+    //   state.error = action.error.message
+    // })
   },
 });
 
