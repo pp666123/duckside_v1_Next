@@ -2,8 +2,10 @@
 import { useSpring, animated } from "react-spring";
 import LoginModal from "./components/LoginModal";
 import { useState } from "react";
+import { useAppSelector } from "@/redux/hook";
 
 export default function Home() {
+  // 動畫function
   const ballFillStyle1 = useSpring({
     from: { fill: "#eda4a4" },
     to: async (next, cancel) => {
@@ -60,8 +62,10 @@ export default function Home() {
     reset: true,
     loop: { reverse: true },
   });
-
+  //
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const login = useAppSelector((state) => state.auth.login);
 
   return (
     <>
@@ -1160,7 +1164,7 @@ export default function Home() {
                   textAnchor="middle"
                   alignmentBaseline="middle"
                 >
-                  登入
+                  {login ? "歡迎回來" : "登入"}
                 </text>
               </g>
               <g

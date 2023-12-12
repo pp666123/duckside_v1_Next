@@ -3,22 +3,26 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 interface loginData {
   email: string;
   password: string;
-  name: string;
 }
 
 export const login = createAsyncThunk(
   "auth/login",
   async (user: loginData, thunkAPI) => {
-    // 邏輯檢查
-    // const response = await userAPI.fetchById(userId);
-    console.log(user);
-    return user.email;
+    // 接API
+    try {
+      // const response = await AuthService.login(email, password);
+      return user;
+    } catch (err) {
+      return thunkAPI.rejectWithValue("帳號未註冊或密碼錯誤");
+    }
   }
 );
 
 interface AuthState {
   entities: [];
   loading: "idle" | "pending" | "succeeded" | "failed";
+  status: string;
+  error: any;
   login: boolean;
   email: string;
   pasword: string;
@@ -28,6 +32,8 @@ interface AuthState {
 const initialState = {
   entities: [],
   loading: "idle",
+  status: "",
+  error: "",
   login: false,
   email: "",
   pasword: "",
@@ -39,24 +45,20 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(login.fulfilled, (state, action) => {
-      // Add user to the state array
-      state.email = action.payload;
-    });
-
-    //  .addCase(fetchPosts.pending, (state, action) => {
-    //   state.status = 'loading'
-    // })
-    // .addCase(fetchPosts.fulfilled, (state, action) => {
-    //   state.status = 'succeeded'
-    //   // Add any fetched posts to the array
-    //   state.posts = state.posts.concat(action.payload)
-    // })
-    // .addCase(fetchPosts.rejected, (state, action) => {
-    //   state.status = 'failed'
-    //   state.error = action.error.message
-    // })
+    builder
+      // login
+      .addCase(login.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.login = true;
+        state.email = action.payload.email;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
+    //
   },
 });
 
