@@ -25,7 +25,7 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
     password: string;
   };
 
-  const submitHandler = useCallback(async () => {
+  const onSubmitHandler = useCallback(async () => {
     handleSubmit((data) => {
       const apiData: LoginData = {
         email: data.email,
@@ -52,7 +52,7 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
             </div>
           </div>
           <div className="p-5">
-            <form onSubmit={handleSubmit(submitHandler)}>
+            <form onSubmit={handleSubmit(onSubmitHandler)}>
               <div className="flex flex-col justify-between h-[50vh] font-semibold">
                 <div className="text-4xl text-center mx-[4rem]">歡迎回來</div>
                 <div className="text-2xl text-center text-gray-400 font-normal">

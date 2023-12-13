@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 const AuthVerification = () => {
   const login = useAppSelector((state) => state.auth.login);
   const router = useRouter();
-
+  // 加localstorage
   if (!login) {
     router.push("/");
     return false;

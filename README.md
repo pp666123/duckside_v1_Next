@@ -90,7 +90,39 @@ modal
 官網：[https://redux-toolkit.js.org/](<https://redux-toolkit.js.org/>)  
 ## react-hook-form
 input/form套件
+const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
 
+{...register("email", {
+    required: true,
+    minLength: 2,
+    pattern: /^\S+@\S+(\.|-)+\S+$/i,
+})}
+## sweetalert2
+官網[https://sweetalert2.github.io/](<https://sweetalert2.github.io/>)
+var defaultParams = {
+  title: '',
+  text: '',
+  type: null,
+  allowOutsideClick: false,
+  showConfirmButton: true,
+  showCancelButton: false,
+  closeOnConfirm: true,
+  closeOnCancel: true,
+  confirmButtonText: 'OK',
+  confirmButtonColor: '#8CD4F5',
+  cancelButtonText: 'Cancel',
+  imageUrl: null,
+  imageSize: null,
+  timer: null,
+  customClass: '',
+  html: false,
+  animation: true,
+  allowEscapeKey: true,
+  inputType: 'text',
+  inputPlaceholder: '',
+  inputValue: '',
+  showLoaderOnConfirm: false
+};
 # Markdown
 換行=空兩格  
 超連結=[文字](<www.test.com>)  

@@ -34,7 +34,7 @@ const initialState = {
   loading: "idle",
   status: "",
   error: "",
-  login: false,
+  login: true,
   email: "",
   pasword: "",
   name: "",
