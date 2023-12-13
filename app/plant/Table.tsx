@@ -1,3 +1,5 @@
+import { useAppSelector } from "@/redux/hook";
+
 const Table = () => {
   const colTitle = [
     {
@@ -119,6 +121,8 @@ const Table = () => {
     //   note: "",
     // },
   ];
+  const planData = useAppSelector((state) => state.plan.planData);
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg xl:mx-4 mx-0 text-lg">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -137,7 +141,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((data, index) => {
+          {planData.map((data, index) => {
             return (
               <tr
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"

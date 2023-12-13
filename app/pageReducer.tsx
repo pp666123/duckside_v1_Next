@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-interface loginData {
+interface loginDataType {
   email: string;
   password: string;
 }
 
 export const login = createAsyncThunk(
   "auth/login",
-  async (user: loginData, thunkAPI) => {
+  async (userData: loginDataType, thunkAPI) => {
     // 接API
     try {
       // const response = await AuthService.login(email, password);
-      return user;
+      return userData;
     } catch (err) {
       return thunkAPI.rejectWithValue("帳號未註冊或密碼錯誤");
     }
@@ -21,7 +21,6 @@ export const login = createAsyncThunk(
 interface AuthState {
   entities: [];
   loading: "idle" | "pending" | "succeeded" | "failed";
-  status: string;
   error: any;
   login: boolean;
   email: string;
@@ -32,7 +31,6 @@ interface AuthState {
 const initialState = {
   entities: [],
   loading: "idle",
-  status: "",
   error: "",
   login: true,
   email: "",
@@ -48,14 +46,15 @@ export const counterSlice = createSlice({
     builder
       // login
       .addCase(login.pending, (state, action) => {
-        state.status = "loading";
+        state.loading = "pending";
       })
       .addCase(login.fulfilled, (state, action) => {
+        state.loading = "succeeded";
         state.login = true;
         state.email = action.payload.email;
       })
       .addCase(login.rejected, (state, action) => {
-        state.status = "failed";
+        state.loading = "failed";
         state.error = action.error.message;
       });
     //

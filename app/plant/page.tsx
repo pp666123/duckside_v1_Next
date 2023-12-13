@@ -2,16 +2,19 @@
 
 import Table from "./Table";
 import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
-import alertModal from "./AlertModal";
+import { successAlertModal, failAlertModal } from "./AlertModal";
+import { useAppDispatch } from "@/redux/hook";
+import { addPlan } from "./plantReducer";
 
-type FormValues = {
+interface formData {
   date: string;
   code: string;
-  type: string;
+  type: "請選擇" | "存股" | "短期" | "中期" | "長期";
   referencePrice: string;
   stopPrice: string;
   targetPrice: string;
-};
+  note?: string;
+}
 
 export default function Plant() {
   const {
@@ -19,12 +22,20 @@ export default function Plant() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormValues>();
+  } = useForm<formData>();
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => console.log({ data });
+  const dispatch = useAppDispatch();
 
-  const onError: SubmitErrorHandler<FormValues> = (errors, e) => {
-    alertModal({ errors });
+  const onSubmit: SubmitHandler<formData> = (data) => {
+    console.log(data);
+    dispatch(addPlan(data)).then(() => {
+      successAlertModal();
+      reset();
+    });
+  };
+
+  const onError: SubmitErrorHandler<formData> = (errors, e) => {
+    failAlertModal({ errors });
     return;
   };
 
@@ -64,12 +75,10 @@ export default function Plant() {
                 {...register("type")}
               >
                 <option>請選擇</option>
-                <option>Dog</option>
-                <option>Cat</option>
-                <option>Hamster</option>
-                <option>Parrot</option>
-                <option>Spider</option>
-                <option>Goldfish</option>
+                <option>存股</option>
+                <option>短期</option>
+                <option>中期</option>
+                <option>長期</option>
               </select>
             </div>
             {/*  */}

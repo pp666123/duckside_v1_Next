@@ -1,6 +1,16 @@
 import Swal from "sweetalert2";
 
-const AlertModal = ({ errors }: any) => {
+export const successAlertModal = () => {
+  Swal.fire({
+    title: "新增成功",
+    text: ``,
+    icon: "success",
+    confirmButtonColor: "#2A6470",
+    confirmButtonText: "好",
+  });
+};
+
+export const failAlertModal = ({ errors }: any) => {
   Swal.fire({
     title: "新增失敗",
     text: `
@@ -11,5 +21,3 @@ const AlertModal = ({ errors }: any) => {
     confirmButtonText: "好",
   });
 };
-
-export default AlertModal;
