@@ -177,6 +177,13 @@ const Table = () => {
               </tr>
             );
           })}
+          {planData.length === 0 && (
+            <tr>
+              <td className="text-center py-3" colSpan={7}>
+                目前無資料
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

@@ -34,17 +34,7 @@ const initialState = {
   loading: "idle",
   status: "",
   error: "",
-  planData: [
-    {
-      date: "",
-      code: "",
-      type: "請選擇",
-      referencePrice: "",
-      stopPrice: "",
-      targetPrice: "",
-      note: "",
-    },
-  ],
+  planData: [],
 } as PlantState;
 
 export const counterSlice = createSlice({
