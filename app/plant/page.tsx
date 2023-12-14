@@ -43,7 +43,7 @@ export default function Plant() {
     <>
       <div className="text-4xl text-center">我的計畫</div>
       <hr className="my-6" />
-      <div className="flex 2xl:flex-row flex-col justify-center">
+      <div className="flex flex-col justify-center">
         <form
           className="2xl:w-5/12 w-12/12"
           onSubmit={handleSubmit(onSubmit, onError)}
@@ -117,9 +117,8 @@ export default function Plant() {
             {/*  */}
           </div>
         </form>
-        <div className="flex text-xl pt-5">
-          <Table />
-        </div>
+
+        <Table />
       </div>
     </>
   );

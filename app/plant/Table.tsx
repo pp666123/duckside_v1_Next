@@ -124,9 +124,9 @@ const Table = () => {
   const planData = useAppSelector((state) => state.plan.planData);
 
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg xl:mx-4 mx-0 text-lg">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="relative overflow-x-auto shadow-md sm:rounded-lg mx-0 text-lg w-12/12 mt-5">
+      <table className="w-full text-lg text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead className="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {colTitle.map((title, index) => {
               return (
