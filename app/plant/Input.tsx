@@ -12,6 +12,7 @@ const customStyles = {
     "&:hover": {
       borderColor: "rgb(107, 114, 128)",
     },
+    cursor: "pointer",
   }),
 };
 

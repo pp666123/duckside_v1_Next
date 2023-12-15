@@ -70,7 +70,7 @@ export default function Plant() {
             <div className="sm:w-1/3 w-full pr-3 mb-2">
               <div className="text-gray-700 font-bold">日期</div>
               <input
-                className="border-2 border-gray-500 rounded w-full p-1"
+                className="border-2 border-gray-500 rounded w-full p-1 cursor-pointer"
                 type="date"
                 {...register("date")}
               />
@@ -88,7 +88,7 @@ export default function Plant() {
             <div className="sm:w-1/3 w-full pr-3 mb-2">
               <div className="text-gray-700 font-bold">類型</div>
               <select
-                className="border-2 border-gray-500 rounded w-full p-1 h-[40px]"
+                className="border-2 border-gray-500 rounded w-full p-1 h-[40px] cursor-pointer"
                 {...register("type")}
               >
                 <option>無</option>
