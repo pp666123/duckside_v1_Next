@@ -18,17 +18,21 @@
 8. 投資成果
 9. 模擬投資
 10. 關於本站
-11. 合作夥伴
-功能：第三方登入、登入後三秒跳轉、迎賓動畫、美術設計、數字圖像化、表單功能
+11. 合作夥伴  
+※功能：第三方登入、登入後三秒跳轉、迎賓動畫、美術設計、數字圖像化、表單功能
 
 新版
 
+1. 會員登入 
+2. 會員資料修改
 1. 我的計畫(計畫)
 2. 交易紀錄(執行)
 3. 投資成果(成果)
 4. 資產明細(總財產)  
-功能：迎賓動畫、管理股票代號input、css管理class化、前端數據管理Redux、線上部屬、文件撰寫
-使用技術&套件→Next、Redux、Tailwind、Typescript、Yarn、react-spring、react-hook-form、sweetalert2..等  
+※功能↓  
+迎賓動畫、管理股票代號input、css管理class化、前端數據管理Redux、線上部屬、文件撰寫  
+※使用技術&套件↓   
+Next、Redux、Tailwind、Typescript、Yarn、react-spring、react-hook-form、sweetalert2..等  
 
 代辦順序
 
