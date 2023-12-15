@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 interface palnObject {
   date: string;
   code: string;
-  type: "請選擇" | "存股" | "短期" | "中期" | "長期";
+  type: "無" | "存股" | "短期" | "中期" | "長期";
   referencePrice: string;
   stopPrice: string;
   targetPrice: string;
@@ -16,7 +16,6 @@ export const addPlan = createAsyncThunk(
     // 接API
     try {
       // const response = await AuthService.login(email, password);
-      console.log(planData);
       return planData;
     } catch (err) {
       return thunkAPI.rejectWithValue("新增錯誤");

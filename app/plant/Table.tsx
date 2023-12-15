@@ -171,7 +171,7 @@ const Table = () => {
                     href="#"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
-                    Edit
+                    編輯
                   </a>
                 </td>
               </tr>

@@ -38,7 +38,7 @@
 1. ~~登入state規劃~~
 3. 登入&頭像選單
 4. 第三方
-5. 
+5. 迎賓動畫+跑馬燈
 
 # 啟動專案
 ```bash
@@ -123,6 +123,11 @@ var defaultParams = {
   inputValue: '',
   showLoaderOnConfirm: false
 };
+## react-select
+高級input
+## python 
+處理股票數據  
+csv轉json
 # Markdown
 換行=空兩格  
 超連結=[文字](<www.test.com>)  

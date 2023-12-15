@@ -1,15 +1,23 @@
 "use client";
-
 import Table from "./Table";
-import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
-import { successAlertModal, failAlertModal } from "./AlertModal";
+import {
+  useForm,
+  SubmitHandler,
+  SubmitErrorHandler,
+  Controller,
+} from "react-hook-form";
+import { successAlertModal, failAlertModal } from "./function/sweetModal";
 import { useAppDispatch } from "@/redux/hook";
-import { addPlan } from "./plantReducer";
+import { addPlan } from "./function/plantReducer";
+import Input from "./Input";
 
 interface formData {
   date: string;
-  code: string;
-  type: "請選擇" | "存股" | "短期" | "中期" | "長期";
+  code: {
+    value: string;
+    label: string;
+  };
+  type: "無" | "存股" | "短期" | "中期" | "長期";
   referencePrice: string;
   stopPrice: string;
   targetPrice: string;
@@ -21,14 +29,23 @@ export default function Plant() {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm<formData>();
 
   const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<formData> = (data) => {
-    console.log(data);
-    dispatch(addPlan(data)).then(() => {
+    const apiData = {
+      date: data.date,
+      code: data.code.label,
+      type: data.type,
+      referencePrice: data.referencePrice,
+      stopPrice: data.stopPrice,
+      targetPrice: data.targetPrice,
+    };
+
+    dispatch(addPlan(apiData)).then(() => {
       successAlertModal();
       reset();
     });
@@ -61,10 +78,10 @@ export default function Plant() {
             {/*  */}
             <div className="sm:w-1/3 w-full pr-3 mb-2">
               <div className="text-gray-700 font-bold">股票代號</div>
-              <input
-                className="border-2 border-gray-500 rounded w-full p-1"
-                type="text"
-                {...register("code", { required: true })}
+              <Controller
+                name="code"
+                control={control}
+                render={({ field }) => <Input field={field} />}
               />
             </div>
             {/*  */}
@@ -74,7 +91,7 @@ export default function Plant() {
                 className="border-2 border-gray-500 rounded w-full p-1 h-[40px]"
                 {...register("type")}
               >
-                <option>請選擇</option>
+                <option>無</option>
                 <option>存股</option>
                 <option>短期</option>
                 <option>中期</option>
@@ -117,7 +134,6 @@ export default function Plant() {
             {/*  */}
           </div>
         </form>
-
         <Table />
       </div>
     </>

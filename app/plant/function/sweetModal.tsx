@@ -14,8 +14,11 @@ export const failAlertModal = ({ errors }: any) => {
   Swal.fire({
     title: "新增失敗",
     text: `
-    ${errors.code && "股票代號,"} \
-    ${errors.referencePrice && "參考價"}為必填`,
+     ${(errors.code && "股票代號") || ""}
+     ${(errors.code && errors.referencePrice && ",") || ""}
+     ${(errors.referencePrice && "參考價") || ""}
+     為必填
+    `,
     icon: "error",
     confirmButtonColor: "#2A6470",
     confirmButtonText: "好",
