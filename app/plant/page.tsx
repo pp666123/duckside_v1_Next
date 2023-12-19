@@ -81,7 +81,9 @@ export default function Plant() {
               <Controller
                 name="code"
                 control={control}
-                render={({ field }) => <Input field={field} />}
+                render={({ field }) => (
+                  <Input field={field} instanceId={"plant-code-input"} />
+                )}
               />
             </div>
             {/*  */}

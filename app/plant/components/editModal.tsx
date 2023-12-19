@@ -48,7 +48,7 @@ export default function EditModal({
       <Modal
         isOpen={modalIsOpen}
         ariaHideApp={false}
-        className="top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-0 bg-white shadow rounded outline-none"
+        className="top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-2 bg-white shadow rounded outline-none"
         contentLabel="editModal"
       >
         <form className="p-5 " onSubmit={handleSubmit(onSubmitHandler)}>

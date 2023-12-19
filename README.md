@@ -44,6 +44,7 @@ Next、Redux、Tailwind、Typescript、Yarn、react-spring、react-hook-form、s
 3. 登入&頭像選單
 4. 第三方&機器人驗證
 5. 迎賓動畫+跑馬燈
+1. 高級input慢吞吞
 
 後續可研究  
 
