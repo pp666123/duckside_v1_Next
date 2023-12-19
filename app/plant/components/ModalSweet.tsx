@@ -1,8 +1,12 @@
 import Swal from "sweetalert2";
 
-export const successAlertModal = () => {
+interface alertData {
+  text: "新增" | "修改";
+}
+
+export const successAlertModal = ({ text }: alertData) => {
   Swal.fire({
-    title: "新增成功",
+    title: `${text}成功`,
     text: ``,
     icon: "success",
     confirmButtonColor: "#2A6470",
@@ -13,11 +17,25 @@ export const successAlertModal = () => {
 export const failAlertModal = ({ errors }: any) => {
   Swal.fire({
     title: "新增失敗",
-    text: `
-     ${(errors.code && "股票代號") || ""}
-     ${(errors.code && errors.referencePrice && ",") || ""}
-     ${(errors.referencePrice && "參考價") || ""}
-     為必填
+    html: `
+      ${(errors.code?.type === "required" && "股票代號為必填<br />") || ""}
+      ${
+        (errors.referencePrice?.type === "required" && "參考價為必填<br />") ||
+        ""
+      }
+                ${
+                  (errors.referencePrice?.type === "pattern" &&
+                    "參考價只能是數字<br />") ||
+                  ""
+                }
+      ${
+        (errors.targetPrice?.type === "pattern" && "目標價只能是數字<br />") ||
+        ""
+      }
+      ${
+        (errors.stopPrice?.type === "pattern" && "停損價只能是數字<br />") || ""
+      }
+
     `,
     icon: "error",
     confirmButtonColor: "#2A6470",

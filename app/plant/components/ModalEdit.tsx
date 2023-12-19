@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { editPlan } from "../plantReducer";
+import { successAlertModal } from "./ModalSweet";
 
 interface editModalData {
   modalIsOpen: boolean;
@@ -53,14 +54,14 @@ export default function ModalEdit({
         item.id === upData.id ? upData : item
       );
 
+      successAlertModal({ text: "修改" as const });
+
       dispatch(editPlan(updatedItems));
-      reset();
       setModalIsOpen(false);
     })();
   }, [
     dispatch,
     handleSubmit,
-    reset,
     planData.code,
     planData.date,
     planData.id,
