@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { editPlan } from "../plantReducer";
 
 interface editModalData {
   modalIsOpen: boolean;
@@ -10,12 +11,14 @@ interface editModalData {
   id: number;
 }
 
-export default function EditModal({
+export default function ModalEdit({
   modalIsOpen,
   setModalIsOpen,
   id,
 }: editModalData) {
   const dispatch = useAppDispatch();
+  const planDatas = useAppSelector((state) => state.plan.planData);
+  const planData = useAppSelector((state) => state.plan.planData)[id];
 
   const {
     register,
@@ -24,24 +27,46 @@ export default function EditModal({
     reset,
   } = useForm();
 
-  type LoginData = {
-    email: string;
-    password: string;
+  type planData = {
+    id: number;
+    date: string;
+    code: string;
+    type: "無" | "存股" | "短期" | "中期" | "長期";
+    referencePrice: string;
+    stopPrice: string;
+    targetPrice: string;
   };
 
   const onSubmitHandler = useCallback(async () => {
     handleSubmit((data) => {
-      const apiData: LoginData = {
-        email: data.email,
-        password: data.password,
+      const upData: planData = {
+        id: planData.id,
+        date: planData.date,
+        code: planData.code,
+        type: data.type,
+        referencePrice: data.referencePrice,
+        stopPrice: data.stopPrice,
+        targetPrice: data.targetPrice,
       };
 
+      const updatedItems = planDatas.map((item) =>
+        item.id === upData.id ? upData : item
+      );
+
+      dispatch(editPlan(updatedItems));
       reset();
       setModalIsOpen(false);
     })();
-  }, []);
-
-  const planData = useAppSelector((state) => state.plan.planData)[id];
+  }, [
+    dispatch,
+    handleSubmit,
+    reset,
+    planData.code,
+    planData.date,
+    planData.id,
+    planDatas,
+    setModalIsOpen,
+  ]);
 
   return (
     <div>

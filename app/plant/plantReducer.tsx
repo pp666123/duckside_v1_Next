@@ -1,12 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface palnObject {
+  id: number;
   date: string;
   code: string;
   type: "無" | "存股" | "短期" | "中期" | "長期";
-  referencePrice: string;
-  stopPrice: string;
-  targetPrice: string;
+  referencePrice: number;
+  stopPrice: number;
+  targetPrice: number;
   note?: string;
 }
 
@@ -19,6 +20,19 @@ export const addPlan = createAsyncThunk(
       return planData;
     } catch (err) {
       return thunkAPI.rejectWithValue("新增錯誤");
+    }
+  }
+);
+
+export const editPlan = createAsyncThunk(
+  "plan/editPlan",
+  async (planData: any, thunkAPI) => {
+    // 接API
+    try {
+      // const response = await AuthService.login(email, password);
+      return planData;
+    } catch (err) {
+      return thunkAPI.rejectWithValue("修改錯誤");
     }
   }
 );
@@ -37,12 +51,12 @@ const initialState = {
 } as PlantState;
 
 export const counterSlice = createSlice({
-  name: "auth",
+  name: "plan",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // login
+      // addPlan
       .addCase(addPlan.pending, (state, action) => {
         state.loading = "pending";
       })
@@ -53,8 +67,19 @@ export const counterSlice = createSlice({
       .addCase(addPlan.rejected, (state, action) => {
         state.loading = "failed";
         state.error = action.error.message;
+      })
+      // editPlan
+      .addCase(editPlan.pending, (state, action) => {
+        state.loading = "pending";
+      })
+      .addCase(editPlan.fulfilled, (state, action) => {
+        state.loading = "succeeded";
+        state.planData = action.payload;
+      })
+      .addCase(editPlan.rejected, (state, action) => {
+        state.loading = "failed";
+        state.error = action.error.message;
       });
-    //
   },
 });
 

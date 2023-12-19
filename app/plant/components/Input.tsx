@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Select from "react-select";
-import { colourOptions } from "./data/stock";
+import { colourOptions } from "../../../public/data/stock";
 
 const customStyles = {
   control: (provided: any) => ({
@@ -21,7 +21,7 @@ const Input = ({ field }: any) => {
     <>
       <Select
         {...(field as any)}
-        id="plant-code-input"
+        instanceId={"plant-code-input"}
         className="basic-single"
         classNamePrefix="select"
         isClearable={true}

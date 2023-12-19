@@ -1,8 +1,8 @@
 import { useAppSelector } from "@/redux/hook";
 import { useState } from "react";
-import EditModal from "./components/editModal";
+import EditModal from "./ModalEdit";
 
-const Table = () => {
+const TableShow = () => {
   const colTitle = [
     {
       name: "日期",
@@ -103,26 +103,6 @@ const Table = () => {
     // },
   ];
 
-  const data = [
-    {
-      date: "2023-12-12",
-      code: "2330",
-      type: "存股",
-      referencePrice: "600",
-      stopPrice: "500",
-      targetPrice: "700",
-      note: "",
-    },
-    // {
-    //   date: "",
-    //   code: "",
-    //   type: "",
-    //   referencePrice: "",
-    //   stopPrice: "",
-    //   targetPrice: "",
-    //   note: "",
-    // },
-  ];
   const planData = useAppSelector((state) => state.plan.planData);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [clickId, setClickId] = useState<number>(0);
@@ -204,4 +184,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default TableShow;
