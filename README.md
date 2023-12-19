@@ -1,68 +1,78 @@
 # demo
-[https://duckside-v1-next.vercel.app//](<https://duckside-v1-next.vercel.app/>)
-# duckside簡介
-本專案為一人獨自使用Next重構前期與夥伴們共同創作的作品    
-前期作品→2022年資展國際前端班專題[https://github.com/pp666123/duckside_v0](<https://github.com/pp666123/duckside_v0>)    
-簡介：以鴨子為主題串接投資記帳、模擬投資小遊戲和裝扮遊戲的專題  
 
-# duckside功能
+[https://duckside-v1-next.vercel.app//](https://duckside-v1-next.vercel.app/)
+
+# duckside 簡介
+
+本專案為一人獨自使用 Next 重構前期與夥伴們共同創作的作品  
+前期作品 →2022 年資展國際前端班專題[https://github.com/pp666123/duckside_v0](https://github.com/pp666123/duckside_v0)  
+簡介：以鴨子為主題串接投資記帳、模擬投資小遊戲和裝扮遊戲的專題
+
+# duckside 功能
 
 舊版
 
-1. 會員登入 
+1. 會員登入
 2. 會員資料修改
-4. 投資總覽
-5. 我的計畫
-6. 交易紀錄
-7. 資產明細
-8. 投資成果
-9. 模擬投資
-10. 關於本站
-11. 合作夥伴  
-※功能：第三方登入、登入後三秒跳轉、迎賓動畫、美術設計、數字圖像化、表單功能
+3. 投資總覽
+4. 我的計畫
+5. 交易紀錄
+6. 資產明細
+7. 投資成果
+8. 模擬投資
+9. 關於本站
+10. 合作夥伴  
+    ※功能：第三方登入、登入後三秒跳轉、迎賓動畫、美術設計、數字圖像化、表單功能
 
 新版
 
-1. 會員登入 
+1. 會員登入
 2. 會員資料修改
-1. 我的計畫(計畫)
-2. 交易紀錄(執行)
-3. 投資成果(成果)
-4. 資產明細(總財產)  
-※功能↓  
-迎賓動畫、管理股票代號input、css管理class化、前端數據管理Redux、線上部屬、文件撰寫  
-※使用技術&套件↓   
-Next、Redux、Tailwind、Typescript、Yarn、react-spring、react-hook-form、sweetalert2..等  
+3. 我的計畫(計畫)
+4. 交易紀錄(執行)
+5. 投資成果(成果)
+6. 資產明細(總財產)  
+   ※功能 ↓  
+   迎賓動畫、管理股票代號 input、css 管理 class 化、前端數據管理 Redux、線上部屬、文件撰寫  
+   ※使用技術&套件 ↓  
+   Next、Redux、Tailwind、Typescript、Yarn、react-spring、react-hook-form、sweetalert2..等
 
 代辦順序
 
 1. ~~迎賓動畫&改色調~~
 2. ~~redux~~
-1. ~~model~~
-1. ~~modal UI復刻~~
-1. ~~登入state規劃~~
-3. 登入&頭像選單
-4. 第三方&機器人驗證
-5. 迎賓動畫+跑馬燈
-1. 高級input慢吞吞
+3. ~~model~~
+4. ~~modal UI 復刻~~
+5. ~~登入 state 規劃~~
+6. 登入&頭像選單
+7. 第三方&機器人驗證
+8. 迎賓動畫+跑馬燈
+9. 高級 input 慢吞吞
 
-後續可研究  
+後續可研究
 
 1.https://redux-saga.js.org/
 
 # 啟動專案
+
 ```bash
-yarn 
+yarn
 yarn dev
 ```
 
 # 技術&套件用法
+
 ## Next
+
 官方網站：https://nextjs.tw/
 npx create-next-app duckside
+
 ## Yarn
+
 ## ESLint
+
 ## Typescript
+
 ```
 // 定義
 type LoginData = {
@@ -83,22 +93,37 @@ const userCredentials: LoginData = {
 // 調用
 loginUser(userCredentials);
 ```
-## Tailwind CSS
-sidebar製作 (下拉式選單?)
-## @heroicons/react
-icon套件
 
-LOGO去背
+## Tailwind CSS
+
+sidebar 製作 (下拉式選單?)
+
+## @heroicons/react
+
+icon 套件
+
+LOGO 去背
+
 ## react-spring
+
 動畫套件
+
 ## vercel
+
 網站部屬
+
 ## react-modal
+
 modal
+
 ## react-redux&@reduxjs/toolkit
-官網：[https://redux-toolkit.js.org/](<https://redux-toolkit.js.org/>)  
+
+官網：[https://redux-toolkit.js.org/](https://redux-toolkit.js.org/)
+
 ## react-hook-form
-input/form套件
+
+input/form 套件
+
 ```
 const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
 
@@ -106,10 +131,14 @@ const { register, handleSubmit, watch, reset, formState: { errors } } = useForm(
     required: true,
     minLength: 2,
     pattern: /^\S+@\S+(\.|-)+\S+$/i,
+    pattern: /^\d+$/,
 })}
 ```
+
 ## sweetalert2
-官網[https://sweetalert2.github.io/](<https://sweetalert2.github.io/>)
+
+官網[https://sweetalert2.github.io/](https://sweetalert2.github.io/)
+
 ```
 var defaultParams = {
   title: '',
@@ -136,20 +165,28 @@ var defaultParams = {
   showLoaderOnConfirm: false
 };
 ```
+
 ## react-select
-高級input
-## python 
+
+高級 input
+
+## python
+
 處理股票數據  
-csv轉json
+csv 轉 json
 
 # 其他輔助工具
+
 ## GIMP
-圖片軟體free開源
+
+圖片軟體 free 開源
 
 ## Markdown
+
 換行=空兩格  
-超連結=[文字](<www.test.com>)  
+超連結=[文字](www.test.com)
 
 ## AI
+
 ChatGPT  
-Anthropic  
+Anthropic
