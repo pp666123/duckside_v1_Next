@@ -51,7 +51,6 @@ export default function ModalEdit({ modalIsOpen, setModalIsOpen, id }: editModal
 		const updatedItems = planDatas.map((item) => (item.id === upData.id ? upData : item));
 
 		successAlertModal({ text: '修改' as const });
-
 		dispatch(editPlan(updatedItems));
 		setModalIsOpen(false);
 	};

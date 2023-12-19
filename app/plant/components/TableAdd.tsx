@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { successAlertModal, failAlertModal } from './ModalSweet';
 import Input from './Input';
 import { addPlan } from '../plantReducer';
+import { useCallback } from 'react';
 
 interface formData {
 	date: string;
@@ -21,32 +22,31 @@ export default function TableAdd() {
 	const dispatch = useAppDispatch();
 	const planData = useAppSelector((state) => state.plan.planData);
 
-	const {
-		register,
-		handleSubmit,
-		reset,
-		control,
-		setValue,
-		formState: { errors },
-	} = useForm<formData>();
+	const { register, handleSubmit, reset, control, setValue } = useForm<formData>();
 
-	const onSubmit: SubmitHandler<formData> = (data) => {
-		const apiData = {
-			id: planData.length,
-			date: data.date,
-			code: data.code.label,
-			type: data.type,
-			referencePrice: data.referencePrice,
-			stopPrice: data.stopPrice,
-			targetPrice: data.targetPrice,
-		};
+	const onSubmit = useCallback(async () => {
+		handleSubmit((data) => {
+			const apiData = {
+				id: planData.length,
+				date: data.date,
+				code: data.code.label,
+				type: data.type,
+				referencePrice: data.referencePrice,
+				stopPrice: data.stopPrice,
+				targetPrice: data.targetPrice,
+			};
 
-		dispatch(addPlan(apiData)).then(() => {
-			successAlertModal({ text: '新增' as const });
-			reset();
-		});
-		setValue('code', { value: '', label: '' });
-	};
+			dispatch(addPlan(apiData)).then(() => {
+				successAlertModal({ text: '新增' as const });
+
+				reset();
+				setValue('code', {
+					value: '',
+					label: '',
+				});
+			});
+		})();
+	}, [dispatch, handleSubmit, planData.length, reset, setValue]);
 
 	const onError: SubmitErrorHandler<formData> = (errors, e) => {
 		failAlertModal({ errors, text: '修改' as const });
