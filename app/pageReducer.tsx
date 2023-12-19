@@ -32,7 +32,7 @@ const initialState = {
   entities: [],
   loading: "idle",
   error: "",
-  login: true,
+  login: false,
   email: "",
   pasword: "",
   name: "",
