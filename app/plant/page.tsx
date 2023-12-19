@@ -6,7 +6,7 @@ import {
   SubmitErrorHandler,
   Controller,
 } from "react-hook-form";
-import { successAlertModal, failAlertModal } from "./function/sweetModal";
+import { successAlertModal, failAlertModal } from "./components/sweetModal";
 import { useAppDispatch } from "@/redux/hook";
 import { addPlan } from "./function/plantReducer";
 import Input from "./Input";

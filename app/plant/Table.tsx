@@ -1,4 +1,6 @@
 import { useAppSelector } from "@/redux/hook";
+import { useState } from "react";
+import EditModal from "./components/editModal";
 
 const Table = () => {
   const colTitle = [
@@ -86,10 +88,10 @@ const Table = () => {
         </a>
       ),
     },
-    {
-      name: "筆記",
-      icon: <></>,
-    },
+    // {
+    //   name: "筆記",
+    //   icon: <></>,
+    // },
     {
       name: "",
       icon: <></>,
@@ -122,9 +124,17 @@ const Table = () => {
     // },
   ];
   const planData = useAppSelector((state) => state.plan.planData);
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [clickId, setClickId] = useState<number>(0);
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg mx-0 text-lg w-12/12 mt-5">
+      {modalIsOpen && (
+        <EditModal
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+          id={clickId}
+        />
+      )}
       <table className="w-full text-lg text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -133,7 +143,7 @@ const Table = () => {
                 <th scope="col" className="px-6 py-3" key={`title-${index}`}>
                   <div className="flex items-center">
                     {title.name}
-                    {title.icon}
+                    {/* {title.icon} */}
                   </div>
                 </th>
               );
@@ -158,18 +168,22 @@ const Table = () => {
                 <td className="px-6 py-4">{data.referencePrice}</td>
                 <td className="px-6 py-4">{data.stopPrice}</td>
                 <td className="px-6 py-4">{data.targetPrice}</td>
-                <td className="px-6 py-4">
+                {/* <td className="px-6 py-4">
                   <a
                     href="#"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline whitespace-nowrap"
                   >
                     查看
                   </a>
-                </td>
+                </td> */}
                 <td className="px-6 py-4 text-right">
                   <a
                     href="#"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    onClick={() => {
+                      setModalIsOpen(true);
+                      setClickId(index);
+                    }}
                   >
                     編輯
                   </a>
