@@ -1,10 +1,10 @@
 import Modal from 'react-modal';
 import React, { useCallback } from 'react';
 import Image from 'next/image';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler, SubmitErrorHandler, Controller } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { editPlan } from '../plantReducer';
-import { successAlertModal } from './ModalSweet';
+import { failAlertModal, successAlertModal } from './ModalSweet';
 
 interface editModalData {
 	modalIsOpen: boolean;
@@ -24,44 +24,42 @@ export default function ModalEdit({ modalIsOpen, setModalIsOpen, id }: editModal
 		reset,
 	} = useForm();
 
-	type planData = {
-		id: number;
-		date: string;
-		code: string;
-		type: '無' | '存股' | '短期' | '中期' | '長期';
-		referencePrice: string;
-		stopPrice: string;
-		targetPrice: string;
+	interface formData {
+		date?: string;
+		code?: {
+			value: string;
+			label: string;
+		};
+		type?: '無' | '存股' | '短期' | '中期' | '長期';
+		referencePrice?: number;
+		stopPrice?: number;
+		targetPrice?: number;
+		note?: string;
+	}
+
+	const onSubmit: SubmitHandler<formData> = (data) => {
+		const upData = {
+			id: planData.id,
+			date: planData.date,
+			code: planData.code,
+			type: data.type,
+			referencePrice: data.referencePrice,
+			stopPrice: data.stopPrice,
+			targetPrice: data.targetPrice,
+		};
+
+		const updatedItems = planDatas.map((item) => (item.id === upData.id ? upData : item));
+
+		successAlertModal({ text: '修改' as const });
+
+		dispatch(editPlan(updatedItems));
+		setModalIsOpen(false);
 	};
 
-	const onSubmitHandler = useCallback(async () => {
-		handleSubmit((data) => {
-			const upData: planData = {
-				id: planData.id,
-				date: planData.date,
-				code: planData.code,
-				type: data.type,
-				referencePrice: data.referencePrice,
-				stopPrice: data.stopPrice,
-				targetPrice: data.targetPrice,
-			};
-
-			const updatedItems = planDatas.map((item) => (item.id === upData.id ? upData : item));
-
-			successAlertModal({ text: '修改' as const });
-
-			dispatch(editPlan(updatedItems));
-			setModalIsOpen(false);
-		})();
-	}, [
-		dispatch,
-		handleSubmit,
-		planData.code,
-		planData.date,
-		planData.id,
-		planDatas,
-		setModalIsOpen,
-	]);
+	const onError: SubmitErrorHandler<formData> = (errors, e) => {
+		failAlertModal({ errors, text: '修改' as const });
+		return;
+	};
 
 	return (
 		<div>
@@ -71,25 +69,25 @@ export default function ModalEdit({ modalIsOpen, setModalIsOpen, id }: editModal
 				className='top-[50%] left-[50%] right-auto bottom-auto mr-[-50%] p-0 absolute translate-x-[-50%] translate-y-[-50%] border-2 bg-white shadow rounded outline-none'
 				contentLabel='editModal'
 			>
-				<form className='p-5 ' onSubmit={handleSubmit(onSubmitHandler)}>
+				<form className='p-5 ' onSubmit={handleSubmit(onSubmit, onError)}>
 					<div className='flex flex-col text-lg'>
 						{/*  */}
 						<div className='pr-3 mb-2 flex items-center'>
 							<div className='text-gray-700 font-bold whitespace-nowrap'>
-								日　期：{planData.date}
+								日　期：
+								{planData.date}
 							</div>
 						</div>
 						{/*  */}
 						<div className='pr-3 mb-2 flex items-center'>
 							<div className='text-gray-700 font-bold whitespace-nowrap'>
-								股票代號：{planData.code}
+								股票代號：
+								{planData.code}
 							</div>
 						</div>
 						{/*  */}
 						<div className='pr-3 mb-2 flex items-center'>
-							<div className='text-gray-700 font-bold whitespace-nowrap'>
-								類　型：
-							</div>
+							<div className='text-gray-700 font-bold whitespace-nowrap'>類　型：</div>
 							<select
 								className='border-2 border-gray-500 rounded w-full p-1 h-[40px] cursor-pointer'
 								{...register('type')}
@@ -104,38 +102,35 @@ export default function ModalEdit({ modalIsOpen, setModalIsOpen, id }: editModal
 						</div>
 						{/*  */}
 						<div className='pr-3 mb-2 flex items-center'>
-							<div className='text-gray-700 font-bold whitespace-nowrap'>
-								參考價：
-							</div>
+							<div className='text-gray-700 font-bold whitespace-nowrap'>參考價：</div>
 							<input
 								className='border-2 border-gray-500 rounded w-full p-1'
 								type='text'
 								defaultValue={planData.referencePrice}
-								{...register('referencePrice', { required: true })}
+								{...register('referencePrice', {
+									required: true,
+									pattern: /^\d+$/,
+								})}
 							/>
 						</div>
 						{/*  */}
 						<div className='pr-3 mb-2 flex items-center'>
-							<div className='text-gray-700 font-bold whitespace-nowrap'>
-								停損價：
-							</div>
+							<div className='text-gray-700 font-bold whitespace-nowrap'>停損價：</div>
 							<input
 								className='border-2 border-gray-500 rounded w-full p-1'
 								type='text'
 								defaultValue={planData.stopPrice}
-								{...register('stopPrice')}
+								{...register('stopPrice', { pattern: /^\d+$/ })}
 							/>
 						</div>
 						{/*  */}
 						<div className='pr-3 mb-2 flex items-center'>
-							<div className='text-gray-700 font-bold whitespace-nowrap'>
-								目標價：
-							</div>
+							<div className='text-gray-700 font-bold whitespace-nowrap'>目標價：</div>
 							<input
 								className='border-2 border-gray-500 rounded w-full p-1'
 								type='text'
 								defaultValue={planData.targetPrice}
-								{...register('targetPrice')}
+								{...register('targetPrice', { pattern: /^\d+$/ })}
 							/>
 						</div>
 						{/*  */}

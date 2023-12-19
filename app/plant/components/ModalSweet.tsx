@@ -14,7 +14,7 @@ export const successAlertModal = ({ text }: alertData) => {
 	});
 };
 
-export const failAlertModal = ({ errors }: any) => {
+export const failAlertModal = ({ errors, text }: any) => {
 	Swal.fire({
 		title: '新增失敗',
 		html: `
