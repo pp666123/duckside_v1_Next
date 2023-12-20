@@ -190,3 +190,9 @@ csv 轉 json
 
 ChatGPT  
 Anthropic
+
+## error
+
+出現 ReferenceError: location is not defined 錯誤  
+\_app.tsx 從 nex13 開始改成 layout.tsx  
+改變限制路由的 function

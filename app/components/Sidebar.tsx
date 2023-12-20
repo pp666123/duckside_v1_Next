@@ -8,7 +8,8 @@ import {
 	CalculatorIcon,
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
-import AuthVerification from '../utils/authVerification';
+import { AuthVerificationFuntion } from '../utils/AuthVerification';
+import { useAppSelector } from '@/redux/hook';
 
 export default function Sidebar() {
 	const listItem = [
@@ -28,9 +29,7 @@ export default function Sidebar() {
 		{
 			name: '交易紀錄',
 			href: 'history',
-			icon: (
-				<CalculatorIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />
-			),
+			icon: <CalculatorIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />,
 			note: (
 				// <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
 				//   Pro
@@ -54,9 +53,7 @@ export default function Sidebar() {
 		{
 			name: '資產明細',
 			href: 'asset',
-			icon: (
-				<BanknotesIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />
-			),
+			icon: <BanknotesIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />,
 			note: <></>,
 		},
 		// {
@@ -124,7 +121,7 @@ export default function Sidebar() {
 	];
 	const [show, setShow] = useState(false);
 	const showToggleHandler = () => setShow(!show);
-	const checkAuth = AuthVerification();
+
 	return (
 		<>
 			{/* HEADSHOT */}
@@ -192,10 +189,7 @@ export default function Sidebar() {
 									id='dropdown-user'
 								>
 									<div className='px-4 py-3' role='none'>
-										<p
-											className='text-sm text-gray-900 dark:text-white'
-											role='none'
-										>
+										<p className='text-sm text-gray-900 dark:text-white' role='none'>
 											Neil Sims
 										</p>
 										<p
@@ -263,15 +257,13 @@ export default function Sidebar() {
 							return (
 								<li key={index}>
 									<Link
-										href={checkAuth ? item.href : '/'}
+										href={AuthVerificationFuntion(item.href)}
 										className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2a6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group ${
 											index === 0 ? '' : 'cursor-not-allowed'
 										}`}
 									>
 										{item.icon}
-										<span className='flex-1 ms-3 whitespace-nowrap'>
-											{item.name}
-										</span>
+										<span className='flex-1 ms-3 whitespace-nowrap'>{item.name}</span>
 										{item.note}
 									</Link>
 								</li>
