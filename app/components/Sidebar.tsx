@@ -8,8 +8,7 @@ import {
 	CalculatorIcon,
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
-import { AuthVerificationFuntion } from '../utils/AuthVerification';
-import { useAppSelector } from '@/redux/hook';
+import { AuthVerificationFuntion } from '../utils/AuthVerify';
 
 export default function Sidebar() {
 	const listItem = [
