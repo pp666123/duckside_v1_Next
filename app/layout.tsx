@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<html lang='en'>
 				<body className={`${inter.className} flex`}>
 					<SideBar />
-					<main className='flex min-h-screen flex-col items-center justify-between py-24 px-6 w-[100%]'>
+					<main className='flex min-h-screen flex-col items-center justify-between py-22 px-6 w-[100%]'>
 						<div className='flex flex-col bg-white p-5 shadow-lg rounded w-[100%]'>
 							{children}
 							<div className='flex justify-center mt-5'>Copyright © Duckside 2023.</div>

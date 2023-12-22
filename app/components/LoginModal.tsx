@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '@/redux/hook';
 import { firebaseLogin, login } from '../pageReducer';
-import FirebaseLogin from '../utils/firebaseLog';
+import FirebaseLogin from '../utils/firebaseLogin';
 import { loginFailModal } from './ModalSweet';
 
 interface loginModalData {

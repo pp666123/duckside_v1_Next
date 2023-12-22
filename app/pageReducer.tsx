@@ -30,6 +30,8 @@ export const firebaseLogin = createAsyncThunk(
 	},
 );
 
+export const logout = createAsyncThunk('auth/logout', async () => {});
+
 interface AuthState {
 	entities: [];
 	loading: 'idle' | 'pending' | 'succeeded' | 'failed';
@@ -81,6 +83,20 @@ export const counterSlice = createSlice({
 				state.email = action.payload.email;
 			})
 			.addCase(firebaseLogin.rejected, (state, action) => {
+				state.loading = 'failed';
+				state.error = action.error.message;
+			})
+			// logout
+			.addCase(logout.pending, (state, action) => {
+				state.loading = 'pending';
+			})
+			.addCase(logout.fulfilled, (state, action) => {
+				state.loading = 'succeeded';
+				state.login = false;
+				localStorage.removeItem('user_email');
+				state.email = '';
+			})
+			.addCase(logout.rejected, (state, action) => {
 				state.loading = 'failed';
 				state.error = action.error.message;
 			});

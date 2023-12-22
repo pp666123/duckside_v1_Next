@@ -1,10 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { loginFailModal } from '../components/ModalSweet';
-import { useAppDispatch } from '@/redux/hook';
-import { firebaseLogin } from '../pageReducer';
 
-export default function FirebaseLogin() {
+export default function firebaseLogin() {
 	// const dispatch = useAppDispatch();
 
 	const firebaseConfig = {

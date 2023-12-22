@@ -1,4 +1,6 @@
 import Swal from 'sweetalert2';
+import { logout } from '../pageReducer';
+import firebaseLogout from '../utils/firebaseLogout';
 
 interface alertData {
 	text: '新增' | '修改';
@@ -36,5 +38,28 @@ export const loginFailModal = () => {
 		icon: 'error',
 		confirmButtonColor: '#2A6470',
 		confirmButtonText: '好',
+	});
+};
+
+export const logoutModal = (dispatch: any) => {
+	Swal.fire({
+		title: '要登出嗎?',
+		icon: 'question',
+		showCancelButton: true,
+		confirmButtonColor: '#2A6470',
+		confirmButtonText: '登出',
+		cancelButtonColor: '#d33',
+		cancelButtonText: '取消',
+	}).then((result) => {
+		if (result.isConfirmed) {
+			dispatch(logout());
+			firebaseLogout();
+			Swal.fire({
+				title: '已登出!',
+				icon: 'success',
+				confirmButtonColor: '#2A6470',
+				confirmButtonText: '好',
+			});
+		}
 	});
 };
