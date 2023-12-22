@@ -260,6 +260,7 @@ export default function Sidebar() {
 										className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2a6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group ${
 											index === 0 ? '' : 'cursor-not-allowed'
 										}`}
+										onClick={() => setShow(false)}
 									>
 										{item.icon}
 										<span className='flex-1 ms-3 whitespace-nowrap'>{item.name}</span>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useForm, SubmitHandler, SubmitErrorHandler, Controller } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { editPlan } from '../plantReducer';
-import { failAlertModal, successAlertModal } from './ModalSweet';
+import { plantFailModal, plantSuccessModal } from '../../components/ModalSweet';
 
 interface editModalData {
 	modalIsOpen: boolean;
@@ -50,13 +50,13 @@ export default function ModalEdit({ modalIsOpen, setModalIsOpen, id }: editModal
 
 		const updatedItems = planDatas.map((item) => (item.id === upData.id ? upData : item));
 
-		successAlertModal({ text: '修改' as const });
+		plantSuccessModal({ text: '修改' as const });
 		dispatch(editPlan(updatedItems));
 		setModalIsOpen(false);
 	};
 
 	const onError: SubmitErrorHandler<formData> = (errors, e) => {
-		failAlertModal({ errors, text: '修改' as const });
+		plantFailModal({ errors, text: '修改' as const });
 		return;
 	};
 

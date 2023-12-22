@@ -15,6 +15,21 @@ export const login = createAsyncThunk('auth/login', async (userData: loginDataTy
 	}
 });
 
+interface firebaseLoginDataType {
+	email: string;
+}
+
+export const firebaseLogin = createAsyncThunk(
+	'auth/firebaseLogin',
+	async (userData: firebaseLoginDataType, thunkAPI) => {
+		try {
+			return userData;
+		} catch (error) {
+			return thunkAPI.rejectWithValue('帳號未註冊或密碼錯誤');
+		}
+	},
+);
+
 interface AuthState {
 	entities: [];
 	loading: 'idle' | 'pending' | 'succeeded' | 'failed';
@@ -51,6 +66,19 @@ export const counterSlice = createSlice({
 				state.email = action.payload.email;
 			})
 			.addCase(login.rejected, (state, action) => {
+				state.loading = 'failed';
+				state.error = action.error.message;
+			})
+			// firebaseLogin
+			.addCase(firebaseLogin.pending, (state, action) => {
+				state.loading = 'pending';
+			})
+			.addCase(firebaseLogin.fulfilled, (state, action) => {
+				state.loading = 'succeeded';
+				state.login = true;
+				state.email = action.payload.email;
+			})
+			.addCase(firebaseLogin.rejected, (state, action) => {
 				state.loading = 'failed';
 				state.error = action.error.message;
 			});

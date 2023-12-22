@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler, SubmitErrorHandler, Controller } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { successAlertModal, failAlertModal } from './ModalSweet';
+import { plantSuccessModal, plantFailModal } from '../../components/ModalSweet';
 import Input from './Input';
 import { addPlan } from '../plantReducer';
 import { useCallback } from 'react';
@@ -37,19 +37,15 @@ export default function TableAdd() {
 			};
 
 			dispatch(addPlan(apiData)).then(() => {
-				successAlertModal({ text: '新增' as const });
+				plantSuccessModal({ text: '新增' as const });
 
 				reset();
-				setValue('code', {
-					value: '',
-					label: '',
-				});
 			});
 		})();
-	}, [dispatch, handleSubmit, planData.length, reset, setValue]);
+	}, [dispatch, handleSubmit, planData.length, reset]);
 
 	const onError: SubmitErrorHandler<formData> = (errors, e) => {
-		failAlertModal({ errors, text: '修改' as const });
+		plantFailModal({ errors, text: '修改' as const });
 		return;
 	};
 
@@ -71,6 +67,7 @@ export default function TableAdd() {
 					<Controller
 						name='code'
 						control={control}
+						defaultValue={null as unknown as { value: string; label: string }}
 						rules={{
 							required: 'Code is required',
 							validate: (value) => value.value !== '',

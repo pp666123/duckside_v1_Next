@@ -3,7 +3,9 @@ import React, { useCallback } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '@/redux/hook';
-import { login } from '../pageReducer';
+import { firebaseLogin, login } from '../pageReducer';
+import FirebaseLogin from '../utils/firebaseLog';
+import { loginFailModal } from './ModalSweet';
 
 interface loginModalData {
 	modalIsOpen: boolean;
@@ -37,6 +39,15 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
 		})();
 	}, [dispatch, handleSubmit, reset, setModalIsOpen]);
 
+	const firebaseGoogleLogin = () => {
+		FirebaseLogin().then((res) => {
+			!res.success && loginFailModal();
+			const email = { email: res.email || '' };
+			res.success && email && dispatch(firebaseLogin(email));
+			setModalIsOpen(false);
+		});
+	};
+
 	return (
 		<div>
 			<Modal
@@ -53,11 +64,9 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
 					</div>
 					<div className='p-5'>
 						<form onSubmit={handleSubmit(onSubmitHandler)}>
-							<div className='flex flex-col justify-between h-[50vh] font-semibold'>
+							<div className='flex flex-col justify-around h-[50vh] font-semibold'>
 								<div className='text-4xl text-center mx-[4rem]'>歡迎回來</div>
-								<div className='text-2xl text-center text-gray-400 font-normal'>
-									請先登入
-								</div>
+								<div className='text-2xl text-center text-gray-400 font-normal'>請先登入</div>
 								<div className='text-xl text-gray-500'>信箱</div>
 								<input
 									type='text'
@@ -106,17 +115,19 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
 										返回
 									</div>
 								</div>
-								<hr />
-								<div className='flex flex-col justify-between text-white'>
-									<button className='bg-[#3B5998] hover:text-xl py-2 rounded mb-2'>
-										使用Facebook帳號登入
-									</button>
-									<button className='bg-[#dd4b39] hover:text-xl py-2 rounded'>
-										使用Google帳號登入
-									</button>
-								</div>
 							</div>
 						</form>
+						<div className='flex flex-col justify-between text-white'>
+							<button className='bg-[#3B5998] hover:text-xl py-2 rounded mb-2'>
+								使用Facebook帳號登入
+							</button>
+							<button
+								onClick={() => firebaseGoogleLogin()}
+								className='bg-[#dd4b39] hover:text-xl py-2 rounded'
+							>
+								使用Google帳號登入
+							</button>
+						</div>
 					</div>
 				</div>
 			</Modal>
