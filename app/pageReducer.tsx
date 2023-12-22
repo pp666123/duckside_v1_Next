@@ -44,7 +44,7 @@ const initialState = {
 	entities: [],
 	loading: 'idle',
 	error: '',
-	login: false,
+	login: localStorage.getItem('user_email') ? true : false,
 	email: '',
 	pasword: '',
 	name: '',
@@ -63,6 +63,7 @@ export const counterSlice = createSlice({
 			.addCase(login.fulfilled, (state, action) => {
 				state.loading = 'succeeded';
 				state.login = true;
+				localStorage.setItem('user_email', action.payload.email);
 				state.email = action.payload.email;
 			})
 			.addCase(login.rejected, (state, action) => {
@@ -76,6 +77,7 @@ export const counterSlice = createSlice({
 			.addCase(firebaseLogin.fulfilled, (state, action) => {
 				state.loading = 'succeeded';
 				state.login = true;
+				localStorage.setItem('user_email', action.payload.email);
 				state.email = action.payload.email;
 			})
 			.addCase(firebaseLogin.rejected, (state, action) => {
