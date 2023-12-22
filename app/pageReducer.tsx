@@ -1,5 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+const getFromLocalStorage = (key: string) => {
+	if (!key || typeof window === 'undefined') {
+		return '';
+	}
+	return localStorage.getItem(key);
+};
+
 interface loginDataType {
 	email: string;
 	password: string;
@@ -46,7 +53,7 @@ const initialState = {
 	entities: [],
 	loading: 'idle',
 	error: '',
-	login: localStorage.getItem('user_email') ? true : false,
+	login: getFromLocalStorage('user_email') ? true : false,
 	email: '',
 	pasword: '',
 	name: '',

@@ -193,6 +193,27 @@ Anthropic
 
 ## error
 
-出現 ReferenceError: location is not defined 錯誤  
+# 出現 ReferenceError: location is not defined 錯誤
+
 \_app.tsx 從 nex13 開始改成 layout.tsx  
 改變限制路由的 function
+
+# 出現 ReferenceError: localStorage is not defined 錯誤
+
+可以直接用在 CSR  
+但無法直接用在 SSR 或混和框架  
+因為 localStorage 只在 client 可用  
+但在 server 端不可用!
+
+```
+const getFromLocalStorage = (key: string) => {
+  if (!key || typeof window === 'undefined') {
+      return ""
+  }
+  return localStorage.getItem(key)
+}
+
+export const initialState = { cartItems: getFromLocalStorage("cartItems") ? JSON.parse(getFromLocalStorage("cartItems") || '{}') : []};
+```
+
+https://cloud.tencent.com/developer/ask/sof/107267341
