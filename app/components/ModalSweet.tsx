@@ -32,6 +32,28 @@ export const plantFailModal = ({ errors, text }: any) => {
 	});
 };
 
+export const plantDeletModal = (dispatch: any, planDatas: any) => {
+	Swal.fire({
+		title: '要刪除嗎?',
+		icon: 'question',
+		showCancelButton: true,
+		confirmButtonColor: '#2A6470',
+		confirmButtonText: '刪除',
+		cancelButtonColor: '#d33',
+		cancelButtonText: '取消',
+	}).then((result) => {
+		if (result.isConfirmed) {
+			// dispatch(logout());
+			Swal.fire({
+				title: '已刪除!',
+				icon: 'success',
+				confirmButtonColor: '#2A6470',
+				confirmButtonText: '好',
+			});
+		}
+	});
+};
+
 export const loginFailModal = () => {
 	Swal.fire({
 		title: '登入失敗',

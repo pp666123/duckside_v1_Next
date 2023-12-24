@@ -1,6 +1,7 @@
-import { useAppSelector } from '@/redux/hook';
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { useState } from 'react';
 import EditModal from './ModalEdit';
+import { deletPlan } from '../plantReducer';
 
 const TableShow = () => {
 	const colTitle = [
@@ -88,10 +89,6 @@ const TableShow = () => {
 				</a>
 			),
 		},
-		// {
-		//   name: "筆記",
-		//   icon: <></>,
-		// },
 		{
 			name: '',
 			icon: <></>,
@@ -102,8 +99,8 @@ const TableShow = () => {
 		//   icon: <></>,
 		// },
 	];
-
-	const planData = useAppSelector((state) => state.plan.planData);
+	const dispatch = useAppDispatch();
+	const planDatas = useAppSelector((state) => state.plan.planData);
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [clickId, setClickId] = useState<number>(0);
 	return (
@@ -127,7 +124,7 @@ const TableShow = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{planData.map((data, index) => {
+					{planDatas.map((planData, index) => {
 						return (
 							<tr
 								className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'
@@ -137,37 +134,40 @@ const TableShow = () => {
 									scope='row'
 									className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'
 								>
-									{data.date}
+									{planData.date}
 								</th>
-								<td className='px-6 py-4'>{data.code}</td>
-								<td className='px-6 py-4'>{data.type}</td>
-								<td className='px-6 py-4'>{data.referencePrice}</td>
-								<td className='px-6 py-4'>{data.stopPrice}</td>
-								<td className='px-6 py-4'>{data.targetPrice}</td>
-								{/* <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline whitespace-nowrap"
-                  >
-                    查看
-                  </a>
-                </td> */}
+								<td className='px-6 py-4'>{planData.code}</td>
+								<td className='px-6 py-4'>{planData.type}</td>
+								<td className='px-6 py-4'>{planData.referencePrice}</td>
+								<td className='px-6 py-4'>{planData.stopPrice}</td>
+								<td className='px-6 py-4'>{planData.targetPrice}</td>
+
 								<td className='px-6 py-4 text-right'>
 									<a
 										href='#'
-										className='font-medium text-blue-600 dark:text-blue-500 hover:underline'
+										className='font-medium text-blue-600 dark:text-blue-500 hover:underline mr-3'
 										onClick={() => {
-											setModalIsOpen(true);
 											setClickId(index);
+											setModalIsOpen(true);
 										}}
 									>
 										編輯
+									</a>
+									<a
+										href='#'
+										className='font-medium text-red-600 dark:text-blue-500 hover:underline'
+										onClick={() => {
+											const upData = planDatas.filter((item) => item.id !== planData.id);
+											dispatch(deletPlan(upData));
+										}}
+									>
+										刪除
 									</a>
 								</td>
 							</tr>
 						);
 					})}
-					{planData.length === 0 && (
+					{planDatas.length === 0 && (
 						<tr>
 							<td className='text-center py-3' colSpan={7}>
 								目前無資料

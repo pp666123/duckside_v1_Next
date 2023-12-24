@@ -14,7 +14,6 @@ interface palnObject {
 export const addPlan = createAsyncThunk('plan/addPlan', async (planData: palnObject, thunkAPI) => {
 	// 接API
 	try {
-		// const response = await AuthService.login(email, password);
 		return planData;
 	} catch (err) {
 		return thunkAPI.rejectWithValue('新增錯誤');
@@ -24,7 +23,15 @@ export const addPlan = createAsyncThunk('plan/addPlan', async (planData: palnObj
 export const editPlan = createAsyncThunk('plan/editPlan', async (planData: any, thunkAPI) => {
 	// 接API
 	try {
-		// const response = await AuthService.login(email, password);
+		return planData;
+	} catch (err) {
+		return thunkAPI.rejectWithValue('修改錯誤');
+	}
+});
+
+export const deletPlan = createAsyncThunk('plan/deletPlan', async (planData: any, thunkAPI) => {
+	// 接API
+	try {
 		return planData;
 	} catch (err) {
 		return thunkAPI.rejectWithValue('修改錯誤');
@@ -71,6 +78,18 @@ export const counterSlice = createSlice({
 				state.planData = action.payload;
 			})
 			.addCase(editPlan.rejected, (state, action) => {
+				state.loading = 'failed';
+				state.error = action.error.message;
+			})
+			// deletPlan
+			.addCase(deletPlan.pending, (state, action) => {
+				state.loading = 'pending';
+			})
+			.addCase(deletPlan.fulfilled, (state, action) => {
+				state.loading = 'succeeded';
+				state.planData = action.payload;
+			})
+			.addCase(deletPlan.rejected, (state, action) => {
 				state.loading = 'failed';
 				state.error = action.error.message;
 			});

@@ -48,7 +48,9 @@ export default function ModalEdit({ modalIsOpen, setModalIsOpen, id }: editModal
 			targetPrice: data.targetPrice,
 		};
 
-		const updatedItems = planDatas.map((item) => (item.id === upData.id ? upData : item));
+		const updatedItems = planDatas.map((planData) =>
+			planData.id === upData.id ? upData : planData,
+		);
 
 		plantSuccessModal({ text: '修改' as const });
 		dispatch(editPlan(updatedItems));

@@ -102,12 +102,8 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
 									登入
 								</button>
 								<div className='flex justify-between px-1'>
-									<div className='text-gray-400 hover:text-black cursor-pointer cursor-not-allowed'>
-										忘記密碼?
-									</div>
-									<div className='text-gray-400 hover:text-black cursor-pointer cursor-not-allowed'>
-										註冊?
-									</div>
+									<div className='text-gray-400 hover:text-black cursor-not-allowed'>忘記密碼?</div>
+									<div className='text-gray-400 hover:text-black cursor-not-allowed'>註冊?</div>
 									<div
 										className='text-gray-400 hover:text-black cursor-pointer'
 										onClick={() => setModalIsOpen(false)}
@@ -118,7 +114,7 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
 							</div>
 						</form>
 						<div className='flex flex-col justify-between text-white'>
-							<button className='bg-[#3B5998] hover:text-xl py-2 rounded mb-2'>
+							<button className='bg-[#3B5998] hover:text-xl py-2 rounded mb-2 cursor-not-allowed'>
 								使用Facebook帳號登入
 							</button>
 							<button
