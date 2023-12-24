@@ -2,8 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 export default function firebaseLogin() {
-	// const dispatch = useAppDispatch();
-
 	const firebaseConfig = {
 		apiKey: process.env.NEXT_PUBLIC_APIKEY,
 		authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,

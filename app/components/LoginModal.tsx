@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '@/redux/hook';
 import { firebaseLogin, login } from '../pageReducer';
-import FirebaseLogin from '../utils/firebaseLogin';
+import FirebaseLogin from '../utils/firebaseGoogleLogin';
+import FirebaseGithubLogin from '../utils/firebaseGithubLogin';
 import { loginFailModal } from './ModalSweet';
 
 interface loginModalData {
@@ -41,6 +42,15 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
 
 	const firebaseGoogleLogin = () => {
 		FirebaseLogin().then((res) => {
+			!res.success && loginFailModal();
+			const email = { email: res.email || '' };
+			res.success && email && dispatch(firebaseLogin(email));
+			setModalIsOpen(false);
+		});
+	};
+
+	const firebaseFbLogin = () => {
+		FirebaseGithubLogin().then((res) => {
 			!res.success && loginFailModal();
 			const email = { email: res.email || '' };
 			res.success && email && dispatch(firebaseLogin(email));
@@ -114,8 +124,11 @@ const LoginModal = ({ modalIsOpen, setModalIsOpen }: loginModalData) => {
 							</div>
 						</form>
 						<div className='flex flex-col justify-between text-white'>
-							<button className='bg-[#3B5998] hover:text-xl py-2 rounded mb-2 cursor-not-allowed'>
-								使用Facebook帳號登入
+							<button
+								onClick={() => firebaseFbLogin()}
+								className='bg-black hover:text-xl py-2 rounded mb-2'
+							>
+								使用Github帳號登入
 							</button>
 							<button
 								onClick={() => firebaseGoogleLogin()}

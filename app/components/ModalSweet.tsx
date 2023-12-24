@@ -1,6 +1,5 @@
 import Swal from 'sweetalert2';
 import { logout } from '../pageReducer';
-import firebaseLogout from '../utils/firebaseLogout';
 
 interface alertData {
 	text: '新增' | '修改';
@@ -75,7 +74,6 @@ export const logoutModal = (dispatch: any) => {
 	}).then((result) => {
 		if (result.isConfirmed) {
 			dispatch(logout());
-			firebaseLogout();
 			Swal.fire({
 				title: '已登出!',
 				icon: 'success',

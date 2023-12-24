@@ -170,6 +170,15 @@ var defaultParams = {
 
 高級 input
 
+## firebase
+
+[https://www.letswrite.tw/firebase-auth-google-fb/#facebook%ef%bc%9a%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f%e3%80%81id%e3%80%81%e5%af%86%e9%91%b0%e3%80%81url](https://www.letswrite.tw/firebase-auth-google-fb/#facebook%ef%bc%9a%e6%87%89%e7%94%a8%e7%a8%8b%e5%bc%8f%e3%80%81id%e3%80%81%e5%af%86%e9%91%b0%e3%80%81url)
+
+多重帳戶  
+error: Error (auth/account-exists-with-different-credential).
+
+[https://stackoverflow.com/questions/44015751/firebase-js-api-auth-account-exists-with-different-credential](https://stackoverflow.com/questions/44015751/firebase-js-api-auth-account-exists-with-different-credential)
+
 ## python
 
 處理股票數據  
@@ -191,14 +200,14 @@ csv 轉 json
 ChatGPT  
 Anthropic
 
-## error
+# error
 
-# 出現 ReferenceError: location is not defined 錯誤
+## 出現 ReferenceError: location is not defined 錯誤
 
 \_app.tsx 從 nex13 開始改成 layout.tsx  
 改變限制路由的 function
 
-# 出現 ReferenceError: localStorage is not defined 錯誤
+## 出現 ReferenceError: localStorage is not defined 錯誤
 
 可以直接用在 CSR  
 但無法直接用在 SSR 或混和框架  
@@ -217,3 +226,5 @@ export const initialState = { cartItems: getFromLocalStorage("cartItems") ? JSON
 ```
 
 https://cloud.tencent.com/developer/ask/sof/107267341
+
+## 出現 Warning: Expected server HTML to contain a matching <div> in <div>. 警告
