@@ -21,29 +21,27 @@ export default function Sidebar() {
 
 	const listItem = [
 		{
+			name: '資產明細',
+			href: 'asset',
+			icon: <BanknotesIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />,
+
+			click: () => setShow(false),
+		},
+		{
 			name: '我的計畫',
 			href: 'plant',
 			icon: (
 				<ClipboardDocumentListIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />
 			),
-			note: (
-				// <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-				//   Pro
-				// </span>
-				<></>
-			),
+
 			click: () => setShow(false),
 		},
+
 		{
 			name: '交易紀錄',
 			href: 'history',
 			icon: <CalculatorIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />,
-			note: (
-				// <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-				//   Pro
-				// </span>
-				<></>
-			),
+
 			click: () => setShow(false),
 		},
 		{
@@ -52,60 +50,9 @@ export default function Sidebar() {
 			icon: (
 				<DocumentMagnifyingGlassIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />
 			),
-			note: (
-				// <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-				//   3
-				// </span>
-				<></>
-			),
-			click: () => setShow(false),
-		},
-		{
-			name: '資產明細',
-			href: 'asset',
-			icon: <BanknotesIcon className='w-[24px] h-[24px] transition duration-75 text-[#2a6470]' />,
-			note: <></>,
-			click: () => setShow(false),
-		},
-		// {
-		//   name: "Products",
-		//   href: "#",
-		//   icon: (
-		//     <svg
-		//       className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-		//       aria-hidden="true"
-		//       xmlns="http://www.w3.org/2000/svg"
-		//       fill="currentColor"
-		//       viewBox="0 0 18 20"
-		//     >
-		//       <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
-		//     </svg>
-		//   ),
-		//   note: <></>,
-		// },
-		// {
-		//   name: "Sign In",
-		//   href: "#",
-		//   icon: (
-		//     <svg
-		//       className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-		//       aria-hidden="true"
-		//       xmlns="http://www.w3.org/2000/svg"
-		//       fill="none"
-		//       viewBox="0 0 18 16"
-		//     >
-		//       <path
-		//         stroke="currentColor"
-		//         strokeLinecap="round"
-		//         strokeLinejoin="round"
-		//         strokeWidth="2"
-		//         d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
-		//       />
-		//     </svg>
-		//   ),
-		//   note: <></>,
-		// },
 
+			click: () => setShow(false),
+		},
 		// {
 		//   name: "",
 		//   href: "#",
@@ -251,13 +198,12 @@ export default function Sidebar() {
 									<Link
 										href={AuthVerificationFuntion(item.href)}
 										className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#2a6470] hover:bg-opacity-25 dark:hover:bg-gray-700 group ${
-											index === 0 || index === 4 ? '' : 'cursor-not-allowed'
+											index === 0 || index === 4 || index === 1 ? '' : 'cursor-not-allowed'
 										}`}
 										onClick={item.click}
 									>
 										{item.icon}
 										<span className='flex-1 ms-3 whitespace-nowrap'>{item.name}</span>
-										{item.note}
 									</Link>
 								</li>
 							);

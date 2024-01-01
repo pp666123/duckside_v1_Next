@@ -46,7 +46,6 @@ interface PlantState {
 
 const initialState = {
 	loading: 'idle',
-	status: '',
 	error: '',
 	planData: [],
 } as PlantState;

@@ -1,10 +1,10 @@
 'use client';
 import { useSpring, animated } from 'react-spring';
 import LoginModal from './components/LoginModal';
-import { useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useAppSelector } from '@/redux/hook';
 
-export default function Home() {
+function Home() {
 	// 動畫function
 	const ballFillStyle1 = useSpring({
 		from: { fill: '#eda4a4' },
@@ -70,10 +70,7 @@ export default function Home() {
 	return (
 		<>
 			<LoginModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
-			<div
-				className='bg-[#F5F5CC] py-4'
-				onClick={() => !login && setModalIsOpen(!modalIsOpen)}
-			>
+			<div className='bg-[#F5F5CC] py-4' onClick={() => !login && setModalIsOpen(!modalIsOpen)}>
 				<svg width='100%' height='70vh' viewBox='0 0 1920 1080'>
 					<defs>
 						<filter
@@ -515,12 +512,7 @@ export default function Home() {
 								transform='translate(1222 603.392)'
 								fill='#b8dbdb'
 							/>
-							<g
-								id='Path_9'
-								data-name='Path 9'
-								transform='translate(1222 523)'
-								fill='#68709f'
-							>
+							<g id='Path_9' data-name='Path 9' transform='translate(1222 523)' fill='#68709f'>
 								<path
 									d='M 315.7513122558594 155.0157928466797 C 126.3181304931641 155.0157928466797 10.00003910064697 112.784797668457 10.00003910064697 82.50788879394531 C 10.00003910064697 52.23097991943359 126.3181304931641 9.999979972839355 315.7513122558594 9.999979972839355 C 505.1845703125 9.999979972839355 621.502685546875 52.23097991943359 621.502685546875 82.50788879394531 C 621.502685546875 112.784797668457 505.1845703125 155.0157928466797 315.7513122558594 155.0157928466797 Z'
 									stroke='none'
@@ -877,10 +869,7 @@ export default function Home() {
 								transform='translate(434.632 317.803)'
 								fill='#e0d5bf'
 							/>
-							<g
-								transform='matrix(1, 0, 0, 1, -1175.47, -417.96)'
-								filter='url(#Ellipse_37)'
-							>
+							<g transform='matrix(1, 0, 0, 1, -1175.47, -417.96)' filter='url(#Ellipse_37)'>
 								<ellipse
 									id='Ellipse_37-2'
 									data-name='Ellipse 37'
@@ -892,10 +881,7 @@ export default function Home() {
 									fill='#760202'
 								/>
 							</g>
-							<g
-								transform='matrix(1, 0, 0, 1, -1175.47, -417.96)'
-								filter='url(#Ellipse_38)'
-							>
+							<g transform='matrix(1, 0, 0, 1, -1175.47, -417.96)' filter='url(#Ellipse_38)'>
 								<circle
 									id='Ellipse_38-2'
 									data-name='Ellipse 38'
@@ -1170,10 +1156,7 @@ export default function Home() {
 						</g>
 						<g id='homepageMirror' transform='translate(2252.679 -3053)'>
 							<g data-type='innerShadowGroup'>
-								<g
-									transform='matrix(1, 0, 0, 1, -2252.68, 3053)'
-									filter='url(#Subtraction_8)'
-								>
+								<g transform='matrix(1, 0, 0, 1, -2252.68, 3053)' filter='url(#Subtraction_8)'>
 									<path
 										id='Subtraction_8-3'
 										data-name='Subtraction 8'
@@ -1182,10 +1165,7 @@ export default function Home() {
 										fill='#ffd230'
 									/>
 								</g>
-								<g
-									transform='matrix(1, 0, 0, 1, -2252.68, 3053)'
-									filter='url(#Subtraction_8-2)'
-								>
+								<g transform='matrix(1, 0, 0, 1, -2252.68, 3053)' filter='url(#Subtraction_8-2)'>
 									<path
 										id='Subtraction_8-4'
 										data-name='Subtraction 8'
@@ -1196,10 +1176,7 @@ export default function Home() {
 								</g>
 							</g>
 							<g data-type='innerShadowGroup'>
-								<g
-									transform='matrix(1, 0, 0, 1, -2252.68, 3053)'
-									filter='url(#Path_736)'
-								>
+								<g transform='matrix(1, 0, 0, 1, -2252.68, 3053)' filter='url(#Path_736)'>
 									<g
 										id='Path_736-3'
 										data-name='Path 736'
@@ -1232,10 +1209,7 @@ export default function Home() {
 										stroke='none'
 									/>
 								</g>
-								<g
-									transform='matrix(1, 0, 0, 1, -2252.68, 3053)'
-									filter='url(#Path_736-2)'
-								>
+								<g transform='matrix(1, 0, 0, 1, -2252.68, 3053)' filter='url(#Path_736-2)'>
 									<g
 										id='Path_736-5'
 										data-name='Path 736'
@@ -1269,10 +1243,7 @@ export default function Home() {
 									/>
 								</g>
 							</g>
-							<g
-								transform='matrix(1, 0, 0, 1, -2252.68, 3053)'
-								filter='url(#Path_737)'
-							>
+							<g transform='matrix(1, 0, 0, 1, -2252.68, 3053)' filter='url(#Path_737)'>
 								<path
 									id='Path_737-2'
 									data-name='Path 737'
@@ -1282,10 +1253,7 @@ export default function Home() {
 									opacity='0.25'
 								/>
 							</g>
-							<g
-								transform='matrix(1, 0, 0, 1, -2252.68, 3053)'
-								filter='url(#Path_738)'
-							>
+							<g transform='matrix(1, 0, 0, 1, -2252.68, 3053)' filter='url(#Path_738)'>
 								<path
 									id='Path_738-2'
 									data-name='Path 738'
@@ -1485,20 +1453,8 @@ export default function Home() {
 								stroke='#707070'
 								strokeWidth='6'
 							>
-								<ellipse
-									cx='18.981'
-									cy='18.981'
-									rx='18.981'
-									ry='18.981'
-									stroke='none'
-								/>
-								<ellipse
-									cx='18.981'
-									cy='18.981'
-									rx='15.981'
-									ry='15.981'
-									fill='none'
-								/>
+								<ellipse cx='18.981' cy='18.981' rx='18.981' ry='18.981' stroke='none' />
+								<ellipse cx='18.981' cy='18.981' rx='15.981' ry='15.981' fill='none' />
 							</g>
 							<g
 								id='Ellipse_42'
@@ -1508,20 +1464,8 @@ export default function Home() {
 								stroke='#707070'
 								strokeWidth='6'
 							>
-								<ellipse
-									cx='18.799'
-									cy='18.981'
-									rx='18.799'
-									ry='18.981'
-									stroke='none'
-								/>
-								<ellipse
-									cx='18.799'
-									cy='18.981'
-									rx='15.799'
-									ry='15.981'
-									fill='none'
-								/>
+								<ellipse cx='18.799' cy='18.981' rx='18.799' ry='18.981' stroke='none' />
+								<ellipse cx='18.799' cy='18.981' rx='15.799' ry='15.981' fill='none' />
 							</g>
 							<path
 								id='Path_34'
@@ -1535,11 +1479,7 @@ export default function Home() {
 							/>
 						</g>
 						<g id='homepageFemaleDuck' transform='translate(3452.552 -5379.475)'>
-							<g
-								id='鴨子-3'
-								data-name='鴨子'
-								transform='translate(-2411.749 5900.052)'
-							>
+							<g id='鴨子-3' data-name='鴨子' transform='translate(-2411.749 5900.052)'>
 								<line
 									id='Line_17-3'
 									data-name='Line 17'
@@ -1724,11 +1664,7 @@ export default function Home() {
 							/>
 						</g>
 						<g id='homepageWeight' transform='translate(2139 -2930.241)'>
-							<g
-								id='Group_28'
-								data-name='Group 28'
-								transform='translate(-1914 3730.343)'
-							>
+							<g id='Group_28' data-name='Group 28' transform='translate(-1914 3730.343)'>
 								<g data-type='innerShadowGroup'>
 									<rect
 										id='Rectangle_84-2'
@@ -1738,10 +1674,7 @@ export default function Home() {
 										transform='translate(99 61.898)'
 										fill='#aeaeae'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_84)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_84)'>
 										<rect
 											id='Rectangle_84-3'
 											data-name='Rectangle 84'
@@ -1762,10 +1695,7 @@ export default function Home() {
 										transform='translate(67 -0.102)'
 										fill='#5e5e5e'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_85)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_85)'>
 										<rect
 											id='Rectangle_85-3'
 											data-name='Rectangle 85'
@@ -1787,10 +1717,7 @@ export default function Home() {
 										transform='translate(276 -0.102)'
 										fill='#5e5e5e'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_86)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_86)'>
 										<rect
 											id='Rectangle_86-3'
 											data-name='Rectangle 86'
@@ -1812,10 +1739,7 @@ export default function Home() {
 										transform='translate(308 13.898)'
 										fill='#5e5e5e'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_87)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_87)'>
 										<rect
 											id='Rectangle_87-3'
 											data-name='Rectangle 87'
@@ -1837,10 +1761,7 @@ export default function Home() {
 										transform='translate(40 13.898)'
 										fill='#5e5e5e'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_88)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_88)'>
 										<rect
 											id='Rectangle_88-3'
 											data-name='Rectangle 88'
@@ -1862,10 +1783,7 @@ export default function Home() {
 										transform='translate(333 30.898)'
 										fill='#5e5e5e'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_89)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_89)'>
 										<rect
 											id='Rectangle_89-3'
 											data-name='Rectangle 89'
@@ -1887,10 +1805,7 @@ export default function Home() {
 										transform='translate(22 30.898)'
 										fill='#5e5e5e'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_90)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_90)'>
 										<rect
 											id='Rectangle_90-3'
 											data-name='Rectangle 90'
@@ -1910,10 +1825,7 @@ export default function Home() {
 										transform='translate(353 61.898)'
 										fill='#aeaeae'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_91)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_91)'>
 										<path
 											id='Rectangle_91-3'
 											data-name='Rectangle 91'
@@ -1931,10 +1843,7 @@ export default function Home() {
 										transform='translate(0 61.898)'
 										fill='#aeaeae'
 									/>
-									<g
-										transform='matrix(1, 0, 0, 1, -225, -800.1)'
-										filter='url(#Rectangle_92)'
-									>
+									<g transform='matrix(1, 0, 0, 1, -225, -800.1)' filter='url(#Rectangle_92)'>
 										<path
 											id='Rectangle_92-3'
 											data-name='Rectangle 92'
@@ -2006,3 +1915,5 @@ export default function Home() {
 		</>
 	);
 }
+
+export default Home;

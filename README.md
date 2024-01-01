@@ -35,19 +35,13 @@
    ※功能 ↓  
    迎賓動畫、管理股票代號 input、css 管理 class 化、前端數據管理 Redux、線上部屬、文件撰寫  
    ※使用技術&套件 ↓  
-   Next、Redux、Tailwind、Typescript、Yarn、react-spring、react-hook-form、sweetalert2..等
+   Next、Redux、Tailwind、Typescript、Yarn、react-spring、react-hook-form、Vercel、sweetalert2..等
 
 代辦順序
 
-1. ~~迎賓動畫&改色調~~
-2. ~~redux~~
-3. ~~model~~
-4. ~~modal UI 復刻~~
-5. ~~登入 state 規劃~~
 6. 登入&頭像選單
 7. 第三方&機器人驗證
 8. 迎賓動畫+跑馬燈
-9. 高級 input 慢吞吞
 
 後續可研究
 
@@ -92,6 +86,12 @@ const userCredentials: LoginData = {
 
 // 調用
 loginUser(userCredentials);
+```
+
+```
+類型
+useRef<HTMLDivElement>(null)
+
 ```
 
 ## Tailwind CSS
