@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { useState } from 'react';
 import EditModal from './ModalEdit';
 import { deletPlan } from '../plantReducer';
+import { plantDeletModal } from '@/app/components/ModalSweet';
 
 const TableShow = () => {
 	const colTitle = [
@@ -158,7 +159,7 @@ const TableShow = () => {
 										className='font-medium text-red-600 dark:text-blue-500 hover:underline'
 										onClick={() => {
 											const upData = planDatas.filter((item) => item.id !== planData.id);
-											dispatch(deletPlan(upData));
+											plantDeletModal(dispatch, upData);
 										}}
 									>
 										刪除
