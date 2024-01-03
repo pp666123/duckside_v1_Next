@@ -27,6 +27,16 @@ body {
 }
 
 html {
-    font-family: "Proxima Nova", system-ui, sans-serif;
-  }
+  font-family: "Proxima Nova", system-ui, sans-serif;
+}
 
+
+.swal2-popup {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+.swal2-styled{
+  font-size: 1rem!important;
+  line-height: 1.75rem;
+}

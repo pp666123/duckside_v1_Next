@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from '../app/pageReducer'
 import plantReducer from '../app/plant/plantReducer'
+import assetReducer from '@/app/asset/assetReducer'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       auth:authReducer,
-      plan:plantReducer
+      plan:plantReducer,
+      asset:assetReducer
     }
   })
 }

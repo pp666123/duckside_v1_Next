@@ -1,6 +1,14 @@
 import Swal from 'sweetalert2';
 import { logout } from '../pageReducer';
 import { deletPlan } from '../plant/plantReducer';
+import {
+	addAssetCash,
+	addAssetFund,
+	addAssetStock,
+	reduceAssetCash,
+	reduceAssetFund,
+	reduceAssetStock,
+} from '../asset/assetReducer';
 
 export const loginFailModal = () => {
 	Swal.fire({
@@ -48,7 +56,7 @@ export const plantSuccessModal = ({ text }: alertData) => {
 	});
 };
 
-export const plantFailModal = ({ errors, text }: any) => {
+export const plantFailModal = ({ errors }: any) => {
 	Swal.fire({
 		title: '新增失敗',
 		html: `
@@ -87,40 +95,119 @@ export const plantDeletModal = (dispatch: any, upData: any) => {
 };
 
 // asset
-export const assetAddModal = () => {
+interface AssetAddModal {
+	title:
+		| '要存入多少錢?'
+		| '要領出多少錢?'
+		| '要用多少錢買入股票?'
+		| '要賣出多少錢的股票?'
+		| '要用多少錢買入基金?'
+		| '要賣出多少錢的基金?';
+	dispatch: any;
+	asset?: number;
+	stock?: number;
+	deposit?: number;
+	fund?: number;
+}
+
+export const assetAddModal = ({ title, dispatch, asset, stock, deposit, fund }: AssetAddModal) => {
 	Swal.fire({
-		title: 'Submit your Github username',
+		title: title,
 		input: 'text',
 		inputAttributes: {
 			autocapitalize: 'off',
 		},
 		showCancelButton: true,
-		confirmButtonText: 'Look up',
+		confirmButtonColor: '#2A6470',
+		confirmButtonText: '確定',
+		cancelButtonColor: '#d33',
+		cancelButtonText: '取消',
+
 		showLoaderOnConfirm: true,
-		preConfirm: async (login) => {
+		preConfirm: async (money) => {
 			try {
-				const githubUrl = `
-			  https://api.github.com/users/${login}
-			`;
-				const response = await fetch(githubUrl);
-				if (!response.ok) {
-					return Swal.showValidationMessage(`
-				${JSON.stringify(await response.json())}
-			  `);
+				switch (title) {
+					case '要存入多少錢?':
+						if (isNaN(Number(money))) {
+							throw new Error('請輸入數字!');
+						} else if (money < 0) {
+							throw new Error('金額不得為負數!');
+						} else if (money > 0) {
+							dispatch(addAssetCash(money));
+						}
+						break;
+					case '要領出多少錢?':
+						if (isNaN(Number(money))) {
+							throw new Error('請輸入數字!');
+						} else if (money < 0) {
+							throw new Error('金額不得為負數!');
+						} else if (money > asset!) {
+							throw new Error('餘額不足!');
+						} else if (money <= asset!) {
+							dispatch(reduceAssetCash(money));
+						}
+						break;
+					case '要用多少錢買入股票?':
+						if (isNaN(Number(money))) {
+							throw new Error('請輸入數字!');
+						} else if (money < 0) {
+							throw new Error('金額不得為負數!');
+						} else if (money > deposit!) {
+							throw new Error('餘額不足!');
+						} else if (money <= deposit!) {
+							dispatch(addAssetStock(money));
+						}
+						break;
+					case '要賣出多少錢的股票?':
+						if (isNaN(Number(money))) {
+							throw new Error('請輸入數字!');
+						} else if (money < 0) {
+							throw new Error('金額不得為負數!');
+						} else if (money > stock!) {
+							throw new Error('餘額不足!');
+						} else if (money <= stock!) {
+							dispatch(reduceAssetStock(money));
+						}
+						break;
+					case '要用多少錢買入基金?':
+						if (isNaN(Number(money))) {
+							throw new Error('請輸入數字!');
+						} else if (money < 0) {
+							throw new Error('金額不得為負數!');
+						} else if (money > deposit!) {
+							throw new Error('餘額不足!');
+						} else if (money <= deposit!) {
+							dispatch(addAssetFund(money));
+						}
+						break;
+
+					case '要賣出多少錢的基金?':
+						if (isNaN(Number(money))) {
+							throw new Error('請輸入數字!');
+						} else if (money < 0) {
+							throw new Error('金額不得為負數!');
+						} else if (money > fund!) {
+							throw new Error('餘額不足!');
+						} else if (money <= fund!) {
+							dispatch(reduceAssetFund(money));
+						}
+						break;
+					default:
+						break;
 				}
-				return response.json();
 			} catch (error) {
 				Swal.showValidationMessage(`
-			  Request failed: ${error}
-			`);
+				${error}
+			  `);
 			}
 		},
 		allowOutsideClick: () => !Swal.isLoading(),
 	}).then((result) => {
 		if (result.isConfirmed) {
 			Swal.fire({
-				title: `${result.value.login}'s avatar`,
-				imageUrl: result.value.avatar_url,
+				title: `完成`,
+				confirmButtonColor: '#2A6470',
+				confirmButtonText: 'Ok',
 			});
 		}
 	});
