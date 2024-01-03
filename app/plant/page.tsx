@@ -7,7 +7,7 @@ export default function Plant() {
 		<>
 			<div className='text-4xl text-center'>我的計畫</div>
 			<hr className='my-6' />
-			<div className='flex flex-col justify-center text-gray-700 font-bold'>
+			<div className='flex flex-col justify-center text-gray-700 font-bold p-2'>
 				<Add />
 				<Table />
 			</div>
