@@ -94,6 +94,9 @@ useRef<HTMLDivElement>(null)
 
 ```
 
+https://basarat.gitbook.io/typescript/recap/equality
+https://jkchao.github.io/typescript-book-chinese/typings/overview.html#%E6%8E%A5%E5%8F%A3
+
 ## Tailwind CSS
 
 sidebar 製作 (下拉式選單?)
