@@ -85,7 +85,7 @@ const initialState = {
 	loading: 'idle',
 	error: '',
 	asset: 1000000,
-	stock: 0,
+	stock: 100000,
 	fund: 0,
 	deposit: 1000000,
 } as AssetState;

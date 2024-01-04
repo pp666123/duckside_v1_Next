@@ -13,7 +13,7 @@ export default function TableAdd() {
 
 	return (
 		<div className='flex flex-wrap text-lg text-gray-700 font-bold'>
-			<div className='flex w-6/12'>
+			<div className='flex sm:w-6/12 w-full'>
 				<div className='flex justify-between items-center w-10/12'>
 					<div className='w-6/12'>資產：{asset}</div>
 					<div className='flex justify-between w-6/12'>
@@ -34,10 +34,10 @@ export default function TableAdd() {
 					</div>
 				</div>
 			</div>
-			<div className='flex w-6/12'></div>
-			<div className='flex w-6/12'>↓</div>
-			<div className='flex w-6/12'></div>
-			<div className='flex w-6/12'>
+			<div className='decorate flex w-6/12 sm:block hidden'></div>
+			<div className='flex sm:w-6/12 w-full'>↓</div>
+			<div className='decorate flex sm:w-6/12 sm:block hidden'></div>
+			<div className='flex sm:w-6/12 w-full'>
 				<div className='flex justify-between items-center w-10/12'>
 					<div className='w-6/12'>股市：{stock}</div>
 					<div className='flex justify-between w-6/12'>
@@ -64,7 +64,8 @@ export default function TableAdd() {
 					</div>
 				</div>
 			</div>
-			<div className='flex w-6/12'>
+			<div className='decorate w-full sm:hidden block'>　</div>
+			<div className='flex sm:w-6/12 w-full'>
 				<div className='flex justify-between items-center w-10/12'>
 					<div className='w-6/12'>基金：{fund}</div>
 					<div className='flex justify-between w-6/12'>
@@ -91,8 +92,8 @@ export default function TableAdd() {
 					</div>
 				</div>
 			</div>
-			<div className='flex w-full'>　</div>
-			<div className='flex w-6/12'>
+			<div className='decorate flex w-full'>　</div>
+			<div className='flex sm:w-6/12 w-full'>
 				<div className='flex justify-between items-center w-10/12'>
 					<div className='w-6/12'>存款：{deposit}</div>
 				</div>

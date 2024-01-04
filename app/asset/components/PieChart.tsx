@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
 interface DataItem {
@@ -13,7 +13,7 @@ interface PieChartProps {
 const PieChart: React.FC<PieChartProps> = ({ data }) => {
 	const svgRef = useRef<SVGSVGElement | null>(null);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (!svgRef.current) return;
 
 		const width = window.innerWidth;
@@ -29,13 +29,14 @@ const PieChart: React.FC<PieChartProps> = ({ data }) => {
 			.sort(null)
 			.value((d) => d.value)
 			.padAngle(0.02);
+
 		const arc = d3
 			.arc()
 			.innerRadius(0)
 			.outerRadius(Math.min(width, height) / 2 - 1);
 
+		//@ts-ignore
 		const labelRadius = arc.outerRadius()() * 0.6;
-
 		const arcLabel = d3
 			.arc<d3.PieArcDatum<DataItem>>()
 			.innerRadius(labelRadius)
@@ -62,6 +63,7 @@ const PieChart: React.FC<PieChartProps> = ({ data }) => {
 			.data(arcs)
 			.join('path')
 			.attr('fill', (d) => color(d.data.name))
+			//@ts-ignore
 			.attr('d', arc)
 			.append('title')
 
@@ -96,33 +98,33 @@ const PieChart: React.FC<PieChartProps> = ({ data }) => {
 			);
 
 		// 額外標示框框
-		const labelBox = svg.selectAll('arc').data(pie(data)).enter().append('g').attr('class', 'arc');
+		// const labelBox = svg.selectAll('arc').data(pie(data)).enter().append('g').attr('class', 'arc');
 
-		data.forEach((d, i) => {
-			const percentage = (d.value / d3.sum(data, (d) => d.value)) * 100;
+		// data.forEach((d, i) => {
+		// 	const percentage = (d.value / d3.sum(data, (d) => d.value)) * 100;
 
-			const label = labelBox
-				.append('g')
-				.attr('class', 'label')
-				.attr('transform', `translate(0, ${i * 30})`);
+		// 	const label = labelBox
+		// 		.append('g')
+		// 		.attr('class', 'label')
+		// 		.attr('transform', `translate(0, ${i * 30})`);
 
-			label
-				.append('rect')
-				.attr('x', -475)
-				.attr('y', -204)
-				.attr('width', 10)
-				.attr('height', 10)
-				.style('fill', color(i))
-				.style('stroke', 'black');
+		// 	label
+		// 		.append('rect')
+		// 		.attr('x', -475)
+		// 		.attr('y', -204)
+		// 		.attr('width', 10)
+		// 		.attr('height', 10)
+		// 		.style('fill', color(i))
+		// 		.style('stroke', 'black');
 
-			label
-				.append('text')
-				.attr('x', -460)
-				.attr('y', -200)
-				.attr('text-anchor', 'start')
-				.attr('dy', '0.35em')
-				.text(`${d.name}: (${percentage.toFixed(2)}%)`);
-		});
+		// 	label
+		// 		.append('text')
+		// 		.attr('x', -460)
+		// 		.attr('y', -200)
+		// 		.attr('text-anchor', 'start')
+		// 		.attr('dy', '0.35em')
+		// 		.text(`${d.name}: (${percentage.toFixed(2)}%)`);
+		// });
 	}, [data]);
 
 	return <svg className='mt-5' ref={svgRef}></svg>;
