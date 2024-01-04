@@ -12,9 +12,9 @@ export default function Asset() {
 	const deposit = useAppSelector((state) => state.asset.deposit);
 
 	const data = [
-		{ name: 'asset', value: asset },
-		{ name: 'stock', value: stock },
-		{ name: 'fund', value: fund },
+		{ name: '股票', value: stock },
+		{ name: '基金', value: fund },
+		{ name: '存款', value: deposit },
 	].filter((item) => item.value > 0);
 
 	return (
@@ -24,7 +24,7 @@ export default function Asset() {
 			<div className='flex flex-col justify-center text-gray-700 font-bold p-2'>
 				<AddArea />
 			</div>
-			<div>
+			<div className='flex flex-col justify-center text-gray-700 font-bold p-2'>
 				<PieChart data={data} />
 			</div>
 		</>

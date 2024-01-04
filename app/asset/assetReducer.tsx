@@ -84,10 +84,10 @@ interface AssetState {
 const initialState = {
 	loading: 'idle',
 	error: '',
-	asset: 0,
+	asset: 1000000,
 	stock: 0,
 	fund: 0,
-	deposit: 0,
+	deposit: 1000000,
 } as AssetState;
 
 export const counterSlice = createSlice({
