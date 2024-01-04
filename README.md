@@ -4,9 +4,9 @@
 
 # duckside 簡介
 
-本專案為一人獨自使用 Next 重構前期與夥伴們共同創作的作品  
+本專案為使用 Next 重構前期與夥伴們共同創作的作品，目前無後端支持暫時先用 redux 充當 db
 前期作品 →2022 年資展國際前端班專題[https://github.com/pp666123/duckside_v0](https://github.com/pp666123/duckside_v0)  
-簡介：以鴨子為主題串接投資記帳、模擬投資小遊戲和裝扮遊戲的專題
+簡介：歡迎來到我們的鴨子主題投資記帳網站！以可愛的鴨子為靈感，我們提供使用者輕鬆、有趣的方式來追蹤資產和投資現況，並透過直觀的圖表呈現數據，助您更好地理解財務狀況，做出更明智的投資決策。開啟您的投資冒險，讓鴨子陪您掌握財務未來！
 
 # duckside 功能
 
@@ -99,7 +99,7 @@ https://jkchao.github.io/typescript-book-chinese/typings/overview.html#%E6%8E%A5
 
 ## Tailwind CSS
 
-sidebar 製作 (下拉式選單?)
+sidebar 製作
 
 ## @heroicons/react
 
@@ -231,5 +231,3 @@ export const initialState = { cartItems: getFromLocalStorage("cartItems") ? JSON
 ```
 
 https://cloud.tencent.com/developer/ask/sof/107267341
-
-## 出現 Warning: Expected server HTML to contain a matching <div> in <div>. 警告
